@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/qt/qml/QT_Project/">
+    <file alias="Main.qml">D:/QT/MyWorkspace/QT_Project/Main.qml</file>
+    <file alias="Login.qml">D:/QT/MyWorkspace/QT_Project/Login.qml</file>
+    <file alias="Register.qml">D:/QT/MyWorkspace/QT_Project/Register.qml</file>
+  </qresource>
+</RCC>
+

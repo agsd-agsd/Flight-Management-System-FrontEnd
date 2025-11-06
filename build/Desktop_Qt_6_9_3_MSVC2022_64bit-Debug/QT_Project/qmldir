@@ -1,0 +1,8 @@
+module QT_Project
+typeinfo appQT_Project.qmltypes
+prefer :/qt/qml/QT_Project/
+Main 254.0 Main.qml
+Login 254.0 Login.qml
+Register 254.0 Register.qml
+depends QtQuick
+
