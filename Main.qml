@@ -5,8 +5,8 @@ import FluentUI 1.0  // FluentUI 核心导入
 
 FluWindow {
     id: window
-    width: 400
-    height: 300
+    width: 0.4*screen.width
+    height: 0.4*screen.height
     visible: true
     title:qsTr("StackView")
 

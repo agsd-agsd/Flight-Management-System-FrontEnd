@@ -5,6 +5,22 @@
                 "entries": [
                     {
                         "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 99,
+                        "errorMessage": "Cannot load property width from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
+                        "functionName": "width",
+                        "line": 8
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 13,
+                        "durationMicroseconds": 18,
+                        "errorMessage": "Cannot load property height from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
+                        "functionName": "height",
+                        "line": 9
+                    },
+                    {
+                        "codegenSuccessful": false,
                         "column": 22,
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"fill\".",
@@ -14,7 +30,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 27,
-                        "durationMicroseconds": 169,
+                        "durationMicroseconds": 106,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 18
@@ -30,7 +46,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 98,
+                        "durationMicroseconds": 82,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 33
@@ -38,7 +54,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 51,
+                        "durationMicroseconds": 50,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 42
@@ -46,7 +62,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 43,
+                        "durationMicroseconds": 48,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 51
@@ -54,7 +70,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 41,
+                        "durationMicroseconds": 47,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 60

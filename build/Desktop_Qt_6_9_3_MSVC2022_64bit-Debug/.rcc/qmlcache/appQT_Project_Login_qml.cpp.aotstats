@@ -6,26 +6,106 @@
                     {
                         "codegenSuccessful": true,
                         "column": 23,
-                        "durationMicroseconds": 142,
+                        "durationMicroseconds": 157,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 9
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 191,
+                        "errorMessage": "",
+                        "functionName": "buttonFlags",
+                        "line": 21
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 20,
-                        "durationMicroseconds": 0,
-                        "errorMessage": "Could not find signal \"clicked\".",
+                        "column": 28,
+                        "durationMicroseconds": 73,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
+                        "functionName": "onNegativeClicked",
+                        "line": 24
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 47,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
+                        "functionName": "onPositiveClicked",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 49,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 41
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 58,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 48
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 55
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 62
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 65
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 72
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
                         "functionName": "onClicked",
-                        "line": 15
+                        "line": 78
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 0,
-                        "errorMessage": "Could not find property \"right\".",
-                        "functionName": "right",
-                        "line": 13
+                        "durationMicroseconds": 46,
+                        "errorMessage": "Cannot access value for name stackView",
+                        "functionName": "onClicked",
+                        "line": 86
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 89
                     }
                 ],
                 "filePath": "D:/QT/MyWorkspace/QT_Project/Login.qml"
