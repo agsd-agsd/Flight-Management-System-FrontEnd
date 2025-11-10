@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 22,
-                        "durationMicroseconds": 191,
+                        "durationMicroseconds": 1689,
                         "errorMessage": "",
                         "functionName": "buttonFlags",
                         "line": 21
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 28,
-                        "durationMicroseconds": 73,
+                        "durationMicroseconds": 267,
                         "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
                         "functionName": "onNegativeClicked",
                         "line": 24
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 28,
-                        "durationMicroseconds": 47,
+                        "durationMicroseconds": 60,
                         "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
                         "functionName": "onPositiveClicked",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 27,
-                        "durationMicroseconds": 49,
+                        "durationMicroseconds": 53,
                         "errorMessage": "",
                         "functionName": "centerIn",
                         "line": 41
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 58,
+                        "durationMicroseconds": 55,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 48
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 42,
+                        "durationMicroseconds": 43,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 55
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 42,
+                        "durationMicroseconds": 47,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 62
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 35,
-                        "durationMicroseconds": 45,
+                        "durationMicroseconds": 41,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 65
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 39,
-                        "durationMicroseconds": 43,
+                        "durationMicroseconds": 41,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 72
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 46,
+                        "durationMicroseconds": 54,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
                         "line": 86
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 39,
+                        "durationMicroseconds": 43,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 89

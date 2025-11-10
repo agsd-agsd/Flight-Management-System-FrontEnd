@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 12,
-                        "durationMicroseconds": 99,
+                        "durationMicroseconds": 96,
                         "errorMessage": "Cannot load property width from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "width",
                         "line": 8
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 13,
-                        "durationMicroseconds": 18,
+                        "durationMicroseconds": 20,
                         "errorMessage": "Cannot load property height from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "height",
                         "line": 9
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 27,
-                        "durationMicroseconds": 106,
+                        "durationMicroseconds": 113,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 18
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 50,
+                        "durationMicroseconds": 64,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 42
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 48,
+                        "durationMicroseconds": 52,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 51
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 47,
+                        "durationMicroseconds": 50,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 60
