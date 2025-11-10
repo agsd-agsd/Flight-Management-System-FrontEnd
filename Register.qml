@@ -7,7 +7,11 @@ import FluentUI 1.0
 Item {
     property StackView stackView
 
-    Rectangle { anchors.fill: parent; color: "black" }
+    // 修改：绑定 FluentUI 主题背景（默认深色/浅色自适应）
+    Rectangle {
+        anchors.fill: parent
+        color: FluTheme.windowBackgroundColor
+    }
 
     ColumnLayout {
         anchors.centerIn: parent

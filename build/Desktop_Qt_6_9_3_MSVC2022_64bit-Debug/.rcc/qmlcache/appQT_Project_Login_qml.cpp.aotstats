@@ -4,116 +4,124 @@
             {
                 "entries": [
                     {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 237,
+                        "errorMessage": "Cannot access value for name FluTheme",
+                        "functionName": "color",
+                        "line": 13
+                    },
+                    {
                         "codegenSuccessful": true,
-                        "column": 31,
-                        "durationMicroseconds": 157,
+                        "column": 23,
+                        "durationMicroseconds": 108,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 10
+                        "line": 12
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 22,
-                        "durationMicroseconds": 226,
+                        "durationMicroseconds": 186,
                         "errorMessage": "Cannot access value for name FluContentDialogType",
                         "functionName": "buttonFlags",
-                        "line": 18
-                    },
-                    {
-                        "codegenSuccessful": false,
-                        "column": 28,
-                        "durationMicroseconds": 52,
-                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
-                        "functionName": "onNegativeClicked",
-                        "line": 21
-                    },
-                    {
-                        "codegenSuccessful": false,
-                        "column": 28,
-                        "durationMicroseconds": 55,
-                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
-                        "functionName": "onPositiveClicked",
                         "line": 22
                     },
                     {
-                        "codegenSuccessful": true,
-                        "column": 27,
-                        "durationMicroseconds": 45,
-                        "errorMessage": "",
-                        "functionName": "centerIn",
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 46,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
+                        "functionName": "onNegativeClicked",
+                        "line": 25
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 40,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
+                        "functionName": "onPositiveClicked",
                         "line": 26
                     },
                     {
                         "codegenSuccessful": true,
-                        "column": 31,
-                        "durationMicroseconds": 62,
+                        "column": 27,
+                        "durationMicroseconds": 37,
                         "errorMessage": "",
-                        "functionName": "alignment",
-                        "line": 33
+                        "functionName": "centerIn",
+                        "line": 30
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 42,
+                        "durationMicroseconds": 55,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 40
+                        "line": 37
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 46,
+                        "durationMicroseconds": 36,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 47
+                        "line": 44
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 42,
+                        "durationMicroseconds": 35,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 55
+                        "line": 51
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 39,
+                        "durationMicroseconds": 37,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 59
                     },
                     {
-                        "codegenSuccessful": false,
-                        "column": 28,
-                        "durationMicroseconds": 604,
-                        "errorMessage": "Cannot access value for name stackView",
-                        "functionName": "onClicked",
-                        "line": 66
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 63
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 28,
-                        "durationMicroseconds": 36,
+                        "durationMicroseconds": 556,
+                        "errorMessage": "Cannot access value for name stackView",
+                        "functionName": "onClicked",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 33,
                         "errorMessage": "Cannot retrieve a non-object type by ID: exitDialog",
                         "functionName": "onClicked",
-                        "line": 83
+                        "line": 87
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 37,
+                        "durationMicroseconds": 32,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
-                        "line": 89
+                        "line": 93
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 54,
+                        "durationMicroseconds": 51,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 90
+                        "line": 94
                     }
                 ],
                 "filePath": "D:/QT/MyWorkspace/QT_Project/Login.qml"
