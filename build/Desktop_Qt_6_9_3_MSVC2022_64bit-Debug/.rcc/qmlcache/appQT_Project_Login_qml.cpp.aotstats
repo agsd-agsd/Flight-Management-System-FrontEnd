@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 27,
-                        "durationMicroseconds": 151,
+                        "durationMicroseconds": 137,
                         "errorMessage": "",
                         "functionName": "centerIn",
                         "line": 11
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 81,
+                        "durationMicroseconds": 75,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 17
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 63,
+                        "durationMicroseconds": 43,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 39
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 1377,
+                        "durationMicroseconds": 640,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
                         "line": 47
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 79,
+                        "durationMicroseconds": 52,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 46
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 46,
+                        "durationMicroseconds": 40,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
                         "line": 63
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 54,
+                        "durationMicroseconds": 44,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 64

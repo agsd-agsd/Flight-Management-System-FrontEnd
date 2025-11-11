@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 27,
-                        "durationMicroseconds": 1827,
+                        "durationMicroseconds": 132,
                         "errorMessage": "",
                         "functionName": "centerIn",
                         "line": 11
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 922,
+                        "durationMicroseconds": 75,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 17
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 61,
+                        "durationMicroseconds": 47,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 24
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 47,
+                        "durationMicroseconds": 41,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 40,
+                        "durationMicroseconds": 53,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 38
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 44,
+                        "durationMicroseconds": 51,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 46
@@ -54,15 +54,15 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 1108,
-                        "errorMessage": "Cannot access value for name emailField",
+                        "durationMicroseconds": 707,
+                        "errorMessage": "Cannot access value for name networkHandler",
                         "functionName": "onClicked",
                         "line": 53
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 70,
+                        "durationMicroseconds": 58,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 52
@@ -70,18 +70,42 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 24,
+                        "durationMicroseconds": 25,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
-                        "line": 71
+                        "line": 73
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 59,
+                        "durationMicroseconds": 46,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 72
+                        "line": 74
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 17,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "Cannot access value for name networkHandler",
+                        "functionName": "target",
+                        "line": 78
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 9,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "onRegisterSuccess",
+                        "line": 79
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 9,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "onRegisterError",
+                        "line": 84
                     }
                 ],
                 "filePath": "D:/QT/MyWorkspace/QT_Project/Register.qml"

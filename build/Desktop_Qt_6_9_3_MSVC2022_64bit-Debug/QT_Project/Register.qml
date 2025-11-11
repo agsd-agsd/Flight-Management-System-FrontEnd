@@ -51,18 +51,20 @@ Item {
             Layout.preferredWidth: 80
             Layout.alignment: Qt.AlignHCenter
             onClicked: {
-                var username = regUsername.text.trim()
-                var email = emailField.text.trim()
-                var pass = regPassword.text
-                var confirm = confirmPassword.text
-                if (username === "" || !email.includes("@") || pass.length < 6 || pass !== confirm) {
-                    regError.text = qsTr("请检查输入（密码匹配、邮箱格式）")
-                    regError.visible = true
-                    return
-                }
-                regError.visible = false
-                console.log("注册提交:", username)
-                stackView.pop()
+            var username = regUsername.text.trim()
+            var pass = regPassword.text
+            var confirm = confirmPassword.text
+            console.log("用户名:", username)
+            console.log("密码长度:", pass.length)
+            console.log("密码确认:", confirm.length)
+            if (username === "" || pass.length < 6 || pass !== confirm) {
+            regError.text = qsTr("请检查输入（用户名不能为空，密码至少6位且匹配）")
+            regError.visible = true
+            return
+            }
+            regError.visible = false
+            console.log("验证通过，调用后端")
+            networkHandler.registerUser(username, pass)
             }
         }
 
@@ -70,6 +72,20 @@ Item {
             text: qsTr("返回登录")
             onClicked: stackView.pop()
             Layout.alignment: Qt.AlignHCenter
+        }
+
+        Connections {
+        target: networkHandler
+        function onRegisterSuccess(message) {
+        console.log("注册成功:", message)
+        regError.visible = false
+        stackView.pop()
+        }
+        function onRegisterError(error) {
+        console.log("注册失败:", error)
+        regError.text = error
+        regError.visible = true
+        }
         }
     }
 }

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 12,
-                        "durationMicroseconds": 92,
+                        "durationMicroseconds": 96,
                         "errorMessage": "Cannot load property width from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "width",
                         "line": 9
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 13,
-                        "durationMicroseconds": 17,
+                        "durationMicroseconds": 18,
                         "errorMessage": "Cannot load property height from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "height",
                         "line": 10
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 28,
-                        "durationMicroseconds": 307,
+                        "durationMicroseconds": 314,
                         "errorMessage": "",
                         "functionName": "onCompleted",
                         "line": 20
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 29,
-                        "durationMicroseconds": 45,
+                        "durationMicroseconds": 55,
                         "errorMessage": "Cannot retrieve a non-object type by ID: dialog_close",
                         "functionName": "closeClickListener",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 29,
-                        "durationMicroseconds": 42,
+                        "durationMicroseconds": 48,
                         "errorMessage": "Cannot generate efficient code for LoadClosure",
                         "functionName": "closeClickListener",
                         "line": 31
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 22,
-                        "durationMicroseconds": 100,
+                        "durationMicroseconds": 97,
                         "errorMessage": "",
                         "functionName": "buttonFlags",
                         "line": 39
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 28,
-                        "durationMicroseconds": 63,
+                        "durationMicroseconds": 72,
                         "errorMessage": "",
                         "functionName": "onPositiveClicked",
                         "line": 40
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 51,
+                        "durationMicroseconds": 68,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 61
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 49,
+                        "durationMicroseconds": 51,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 70
