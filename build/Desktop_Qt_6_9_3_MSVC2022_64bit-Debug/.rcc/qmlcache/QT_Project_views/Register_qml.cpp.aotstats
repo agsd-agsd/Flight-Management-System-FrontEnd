@@ -1,0 +1,124 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 125,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 72,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 17
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 24
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 40,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 38
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 45
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 37,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 53
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 803,
+                        "errorMessage": "Cannot access value for name networkHandler",
+                        "functionName": "onClicked",
+                        "line": 60
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 59
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 24,
+                        "errorMessage": "Cannot access value for name stackView",
+                        "functionName": "onClicked",
+                        "line": 82
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 83
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "Cannot access value for name networkHandler",
+                        "functionName": "target",
+                        "line": 87
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 13,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "onRegisterSuccess",
+                        "line": 88
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 13,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "onRegisterError",
+                        "line": 93
+                    }
+                ],
+                "filePath": "D:/QT/MyWorkspace/QT_Project/views/Register.qml"
+            }
+        ],
+        "moduleId": "QT_Project(QT_Project)"
+    }
+]

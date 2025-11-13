@@ -1,9 +1,8 @@
 module QT_Project
-typeinfo appQT_Project.qmltypes
-prefer :/qt/qml/QT_Project/
-Main 254.0 Main.qml
-Login 254.0 Login.qml
-Register 254.0 Register.qml
-CodeExpander 254.0 component/CodeExpander.qml
+typeinfo QT_Project.qmltypes
+prefer :/qt/QT_Project/
+Main 1.0 Main.qml
+Login 1.0 views/Login.qml
+Register 1.0 views/Register.qml
 depends QtQuick
 

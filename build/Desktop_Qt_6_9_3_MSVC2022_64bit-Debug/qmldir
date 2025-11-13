@@ -1,0 +1,11 @@
+module QT_Project
+linktarget appQT_Projectplugin
+optional plugin appQT_Projectplugin
+classname QT_ProjectPlugin
+typeinfo appQT_Project.qmltypes
+prefer :/qt/qml/QT_Project/
+Main 254.0 Main.qml
+Login 254.0 views/Login.qml
+Register 254.0 views/Register.qml
+depends QtQuick
+

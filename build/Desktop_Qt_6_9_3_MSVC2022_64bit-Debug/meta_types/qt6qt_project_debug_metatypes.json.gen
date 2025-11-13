@@ -1,0 +1,236 @@
+[
+    {
+        "classes": [
+            {
+                "className": "NetworkHandler",
+                "lineNumber": 9,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "email",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "password",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "login",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "email",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "username",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "password",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "registerUser",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "NetworkHandler",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "loginSuccess",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "error",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "loginError",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "registerSuccess",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "error",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "registerError",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "networkhandler.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "CircularReveal",
+                "lineNumber": 53,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "w",
+                                "type": "int"
+                            },
+                            {
+                                "name": "h",
+                                "type": "int"
+                            },
+                            {
+                                "name": "center",
+                                "type": "QPoint"
+                            },
+                            {
+                                "name": "radius",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "start",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "member": "_target",
+                        "name": "target",
+                        "notify": "targetChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickItem*",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "member": "_radius",
+                        "name": "radius",
+                        "notify": "radiusChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "member": "_darkToLight",
+                        "name": "darkToLight",
+                        "notify": "darkToLightChanged",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "CircularReveal",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "targetChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "radiusChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "darkToLightChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "imageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "animationFinished",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "handleGrabResult",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickPaintedItem"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "CircularReveal.h",
+        "outputRevision": 69
+    }
+]

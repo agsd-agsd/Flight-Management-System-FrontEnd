@@ -1,0 +1,84 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 152,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 77,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 17
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 24
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 39
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 609,
+                        "errorMessage": "Cannot access value for name stackView",
+                        "functionName": "onClicked",
+                        "line": 47
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 48,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 46
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 38,
+                        "errorMessage": "Cannot access value for name stackView",
+                        "functionName": "onClicked",
+                        "line": 63
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 64
+                    }
+                ],
+                "filePath": "D:/QT/MyWorkspace/QT_Project/views/Login.qml"
+            }
+        ],
+        "moduleId": "QT_Project(appQT_Project)"
+    }
+]

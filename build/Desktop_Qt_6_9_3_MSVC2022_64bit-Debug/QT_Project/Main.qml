@@ -4,8 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
 import AppComponents 1.0
-import "./component"
-
+import "./views"
 FluWindow {
     id: window
     width: 0.4 * screen.width

@@ -1,3 +1,3 @@
-set(__QT_DEPLOY_TARGET_appQT_Project_FILE D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/appQT_Project.exe)
-set(__QT_DEPLOY_TARGET_appQT_Project_TYPE EXECUTABLE)
-set(__QT_DEPLOY_TARGET_appQT_Project_RUNTIME_DLLS D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Quickd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6QmlMetad.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6QmlWorkerScriptd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6QmlModelsd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Qmld.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Networkd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6OpenGLd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Guid.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Cored.dll)
+set(__QT_DEPLOY_TARGET_QT_Project_FILE D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/QT_Project.exe)
+set(__QT_DEPLOY_TARGET_QT_Project_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_QT_Project_RUNTIME_DLLS D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Quickd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6QmlMetad.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6QmlWorkerScriptd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6QmlModelsd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Qmld.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Networkd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6OpenGLd.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Guid.dll;D:/QT/QT/6.9.3/msvc2022_64/bin/Qt6Cored.dll)
