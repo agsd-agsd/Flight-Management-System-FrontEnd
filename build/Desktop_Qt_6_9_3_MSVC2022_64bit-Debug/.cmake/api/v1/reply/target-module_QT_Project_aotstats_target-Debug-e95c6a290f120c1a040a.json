@@ -5,7 +5,8 @@
 		"commands" : 
 		[
 			"add_custom_target",
-			"_qt_internal_deferred_aotstats_setup"
+			"_qt_internal_deferred_aotstats_setup",
+			"add_dependencies"
 		],
 		"files" : 
 		[
@@ -32,7 +33,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 1254,
+				"line" : 1193,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 1198,
 				"parent" : 2
 			}
 		]
@@ -40,11 +47,12 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "module_QT_Project_aotstats_target::@6890427a1f51a3e7e1df"
+			"backtrace" : 4,
+			"id" : "QT_Project_qmltyperegistration::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "all_aotstats::@6890427a1f51a3e7e1df",
-	"name" : "all_aotstats",
+	"id" : "module_QT_Project_aotstats_target::@6890427a1f51a3e7e1df",
+	"name" : "module_QT_Project_aotstats_target",
 	"paths" : 
 	{
 		"build" : ".",
@@ -68,8 +76,7 @@
 				3,
 				4,
 				5,
-				6,
-				7
+				6
 			]
 		}
 	],
@@ -78,19 +85,13 @@
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/CMakeFiles/all_aotstats",
+			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/CMakeFiles/module_QT_Project_aotstats_target",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/CMakeFiles/all_aotstats.rule",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/all_aotstats.aotstats.rule",
+			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/CMakeFiles/module_QT_Project_aotstats_target.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -102,7 +103,7 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_Main_qml.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_MainWindow_qml.cpp.rule",
 			"sourceGroupIndex" : 1
 		},
 		{

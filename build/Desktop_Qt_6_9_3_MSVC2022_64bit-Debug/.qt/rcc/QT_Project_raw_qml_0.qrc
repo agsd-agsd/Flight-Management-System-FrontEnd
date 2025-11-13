@@ -1,6 +1,6 @@
 <RCC>
   <qresource prefix="/qt/QT_Project/">
-    <file alias="Main.qml">D:/QT/MyWorkspace/QT_Project/Main.qml</file>
+    <file alias="MainWindow.qml">D:/QT/MyWorkspace/QT_Project/MainWindow.qml</file>
     <file alias="views/Login.qml">D:/QT/MyWorkspace/QT_Project/views/Login.qml</file>
     <file alias="views/Register.qml">D:/QT/MyWorkspace/QT_Project/views/Register.qml</file>
   </qresource>

@@ -1,7 +1,7 @@
 module QT_Project
 typeinfo QT_Project.qmltypes
 prefer :/qt/QT_Project/
-Main 1.0 Main.qml
+MainWindow 1.0 MainWindow.qml
 Login 1.0 views/Login.qml
 Register 1.0 views/Register.qml
 depends QtQuick

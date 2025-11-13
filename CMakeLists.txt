@@ -20,7 +20,7 @@ set(HEADER_FILES
 )
 
 set(QML_FILES
-    Main.qml
+    MainWindow.qml
     views/Login.qml
     views/Register.qml
 )

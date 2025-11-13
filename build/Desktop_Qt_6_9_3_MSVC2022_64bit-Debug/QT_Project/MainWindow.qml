@@ -90,6 +90,7 @@ FluWindow {
         buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
         onPositiveClicked: Qt.quit()
     }
+
     StackView {
         id: stackView
         anchors.fill: parent
