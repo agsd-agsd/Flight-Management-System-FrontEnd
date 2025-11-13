@@ -13,9 +13,9 @@ FluWindow {
     launchMode: FluWindowType.SingleTask
     fitsAppBarWindows: true
 
-    effect: "gaussian-blur"  // 高斯模糊（毛玻璃核心）
-    tintOpacity: 0.8  // 低透明度（增强霜感，减少着色）
-    blurRadius: 60  // 高模糊半径（更强霜效果）
+    effect: "gaussian-blur"
+    tintOpacity: 0.8
+    blurRadius: 60
 
     Component.onCompleted: {
         FluTheme.darkMode = FluThemeType.Dark

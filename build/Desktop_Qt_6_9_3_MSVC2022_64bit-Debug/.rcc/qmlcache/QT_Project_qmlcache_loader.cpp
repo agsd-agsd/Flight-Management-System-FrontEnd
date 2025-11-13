@@ -5,7 +5,7 @@
 #include <QtCore/qstring.h>
 
 namespace QmlCacheGeneratedCode {
-namespace _qt_QT_Project_Main_qml { 
+namespace _qt_QT_Project_MainWindow_qml { 
     extern const unsigned char qmlData[];
     extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
     const QQmlPrivate::CachedQmlUnit unit = {
@@ -40,7 +40,7 @@ Q_GLOBAL_STATIC(Registry, unitRegistry)
 
 
 Registry::Registry() {
-    resourcePathToCachedUnit.insert(QStringLiteral("/qt/QT_Project/Main.qml"), &QmlCacheGeneratedCode::_qt_QT_Project_Main_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/QT_Project/MainWindow.qml"), &QmlCacheGeneratedCode::_qt_QT_Project_MainWindow_qml::unit);
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/QT_Project/views/Login.qml"), &QmlCacheGeneratedCode::_qt_QT_Project_views_Login_qml::unit);
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/QT_Project/views/Register.qml"), &QmlCacheGeneratedCode::_qt_QT_Project_views_Register_qml::unit);
     QQmlPrivate::RegisterQmlUnitCacheHook registration;

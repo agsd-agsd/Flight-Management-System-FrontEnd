@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 27,
-                        "durationMicroseconds": 163,
+                        "durationMicroseconds": 176,
                         "errorMessage": "",
                         "functionName": "centerIn",
                         "line": 11
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 79,
+                        "durationMicroseconds": 95,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 17
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 44,
+                        "durationMicroseconds": 51,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 24
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 40,
+                        "durationMicroseconds": 44,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 39,
+                        "durationMicroseconds": 40,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 39
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 628,
+                        "durationMicroseconds": 682,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
                         "line": 47
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 50,
+                        "durationMicroseconds": 55,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 46
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 24,
-                        "durationMicroseconds": 39,
+                        "durationMicroseconds": 41,
                         "errorMessage": "Cannot access value for name stackView",
                         "functionName": "onClicked",
                         "line": 63
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 31,
-                        "durationMicroseconds": 41,
+                        "durationMicroseconds": 45,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 64

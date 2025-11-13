@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection
         );
 
-    engine.loadFromModule("QT_Project", "Main");
+    engine.loadFromModule("QT_Project", "MainWindow");
 
     if (engine.rootObjects().isEmpty())
         return -1;
