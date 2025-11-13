@@ -19,7 +19,7 @@ Item {
 
         FluTextBox {
             id: usernameField
-            placeholderText: "用户名"
+            placeholderText: "邮箱"
             Layout.preferredWidth: 200
             Layout.alignment: Qt.AlignHCenter
         }

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 12,
-                        "durationMicroseconds": 96,
+                        "durationMicroseconds": 450,
                         "errorMessage": "Cannot load property width from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "width",
                         "line": 9
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 13,
-                        "durationMicroseconds": 18,
+                        "durationMicroseconds": 26,
                         "errorMessage": "Cannot load property height from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "height",
                         "line": 10
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 28,
-                        "durationMicroseconds": 314,
+                        "durationMicroseconds": 2366,
                         "errorMessage": "",
                         "functionName": "onCompleted",
                         "line": 20
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 29,
-                        "durationMicroseconds": 55,
+                        "durationMicroseconds": 67,
                         "errorMessage": "Cannot retrieve a non-object type by ID: dialog_close",
                         "functionName": "closeClickListener",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 29,
-                        "durationMicroseconds": 48,
+                        "durationMicroseconds": 58,
                         "errorMessage": "Cannot generate efficient code for LoadClosure",
                         "functionName": "closeClickListener",
                         "line": 31
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 22,
-                        "durationMicroseconds": 97,
+                        "durationMicroseconds": 279,
                         "errorMessage": "",
                         "functionName": "buttonFlags",
                         "line": 39
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 28,
-                        "durationMicroseconds": 72,
+                        "durationMicroseconds": 85,
                         "errorMessage": "",
                         "functionName": "onPositiveClicked",
                         "line": 40
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 77,
+                        "durationMicroseconds": 94,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 52
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 68,
+                        "durationMicroseconds": 66,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 61
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 51,
+                        "durationMicroseconds": 59,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 70
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 48,
+                        "durationMicroseconds": 58,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
                         "line": 79
