@@ -277,7 +277,6 @@ D:/QT/MyWorkspace/QT_Project/animationH/CircularReveal.h
  mdp:D:/Windows Kits/10/Include/10.0.26100.0/ucrt/stdio.h
  mdp:D:/Windows Kits/10/Include/10.0.26100.0/ucrt/stdlib.h
  mdp:D:/Windows Kits/10/Include/10.0.26100.0/ucrt/string.h
-D:/QT/MyWorkspace/QT_Project/networkhandler.cpp
 D:/QT/MyWorkspace/QT_Project/apiH/networkhandler.h
  mmc:Q_OBJECT
  mdp:C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/include/algorithm
@@ -493,5 +492,8 @@ D:/QT/MyWorkspace/QT_Project/apiH/networkhandler.h
  mdp:D:/Windows Kits/10/Include/10.0.26100.0/ucrt/stdio.h
  mdp:D:/Windows Kits/10/Include/10.0.26100.0/ucrt/stdlib.h
  mdp:D:/Windows Kits/10/Include/10.0.26100.0/ucrt/string.h
+D:/QT/MyWorkspace/QT_Project/networkhandler.cpp
+D:/QT/MyWorkspace/QT_Project/animationS/CircularReveal.cpp
 D:/QT/MyWorkspace/QT_Project/CircularReveal.cpp
 D:/QT/MyWorkspace/QT_Project/main.cpp
+D:/QT/MyWorkspace/QT_Project/apiS/networkhandler.cpp

@@ -41,9 +41,10 @@ QT_Project_autogen/timestamp: \
 	C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Community/VC/Tools/MSVC/14.44.35207/include/yvals.h \
 	C:/Program\ Files/Microsoft\ Visual\ Studio/2022/Community/VC/Tools/MSVC/14.44.35207/include/yvals_core.h \
 	D:/QT/MyWorkspace/QT_Project/CMakeLists.txt \
-	D:/QT/MyWorkspace/QT_Project/CircularReveal.cpp \
 	D:/QT/MyWorkspace/QT_Project/animationH/CircularReveal.h \
+	D:/QT/MyWorkspace/QT_Project/animationS/CircularReveal.cpp \
 	D:/QT/MyWorkspace/QT_Project/apiH/networkhandler.h \
+	D:/QT/MyWorkspace/QT_Project/apiS/networkhandler.cpp \
 	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qt/qml_imports/QT_Project_conf.cmake \
 	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake \
@@ -51,7 +52,6 @@ QT_Project_autogen/timestamp: \
 	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	D:/QT/MyWorkspace/QT_Project/main.cpp \
-	D:/QT/MyWorkspace/QT_Project/networkhandler.cpp \
 	D:/QT/QT/6.9.3/msvc2022_64/include/QtCore/QFlags \
 	D:/QT/QT/6.9.3/msvc2022_64/include/QtCore/QIODevice \
 	D:/QT/QT/6.9.3/msvc2022_64/include/QtCore/QList \
