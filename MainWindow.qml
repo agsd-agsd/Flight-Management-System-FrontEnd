@@ -13,6 +13,11 @@ FluWindow {
     launchMode: FluWindowType.SingleTask
     fitsAppBarWindows: true
 
+    stayTop: false
+    showDark: true
+    showStayTop: true
+
+    //实现亚克力效果
     effect: "gaussian-blur"
     tintOpacity: 0.8
     blurRadius: 60
@@ -23,6 +28,7 @@ FluWindow {
         FluTheme.animationEnabled = true
         FluTheme.nativeText = true
         FluTheme.blurBehindWindowEnabled = true  // 全局启用模糊
+        FluApp.windowIcon = "qrc:/qt/QT_Project/favicon.ico"
     }
 
     appBar: FluAppBar {

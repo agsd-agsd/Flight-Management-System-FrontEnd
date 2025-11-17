@@ -5,6 +5,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Network)
 
@@ -25,6 +26,10 @@ set(QML_FILES
     views/Register.qml
 )
 
+set(RESOURCES_FILES
+    favicon.ico
+)
+
 qt_add_executable(${PROJECT_NAME}
     ${SOURCE_FILES}
     ${HEADER_FILES}
@@ -35,6 +40,7 @@ qt_add_qml_module(${PROJECT_NAME}
     VERSION 1.0
     RESOURCE_PREFIX /qt
     SOURCES ${SOURCE_FILES} ${HEADER_FILES}
+    RESOURCES ${RESOURCES_FILES}
     QML_FILES ${QML_FILES}
 )
 

@@ -1117,6 +1117,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug",
 		"D:/QT/MyWorkspace/QT_Project",
 		"D:/QT/QT/6.9.3/msvc2022_64/include/QtQml/6.9.3",
 		"D:/QT/QT/6.9.3/msvc2022_64/include/QtQml/6.9.3/QtQml",
