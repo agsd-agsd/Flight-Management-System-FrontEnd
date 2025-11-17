@@ -259,3 +259,16 @@
 446	1839	7850766106522619	CMakeFiles/QT_Project.dir/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_views/Login_qml.cpp.obj	13691aa01853a915
 451	1843	7850766106572663	CMakeFiles/QT_Project.dir/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_views/Register_qml.cpp.obj	65912c31418a47ac
 1843	2012	7850766120496068	QT_Project.exe	331db97190c0dfd4
+47	134	7850810437714709	.qt/QT_Project_qml.txt	39b798fa0926c9e8
+47	134	7850810437714709	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qt/QT_Project_qml.txt	39b798fa0926c9e8
+61	278	7850810439122156	.qt/qml_imports/QT_Project_build.cmake	7c48ebb4797a10c
+61	278	7850810439122156	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qt/qml_imports/QT_Project_build.cmake	7c48ebb4797a10c
+284	318	7850810439537064	.qt/rcc/qrc_QT_Project_raw_qml_0.cpp	ad60a759cc53a530
+284	318	7850810439537064	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qt/rcc/qrc_QT_Project_raw_qml_0.cpp	ad60a759cc53a530
+278	522	7850810441485439	.rcc/qmlcache/QT_Project_views/DashBoard_qml.cpp	88ea306edac4334e
+278	522	7850810441485439	.rcc/qmlcache/QT_Project_views/DashBoard_qml.cpp.aotstats	88ea306edac4334e
+278	522	7850810441485439	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_views/DashBoard_qml.cpp	88ea306edac4334e
+278	522	7850810441485439	D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_views/DashBoard_qml.cpp.aotstats	88ea306edac4334e
+529	592	7850810441776592	CMakeFiles/QT_Project.dir/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.qt/rcc/qrc_QT_Project_raw_qml_0.cpp.obj	a8cf18d16cf93ecd
+523	1736	7850810441706496	CMakeFiles/QT_Project.dir/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/.rcc/qmlcache/QT_Project_views/DashBoard_qml.cpp.obj	d3365c611e01a8fe
+1737	2100	7850810453792315	QT_Project.exe	331db97190c0dfd4

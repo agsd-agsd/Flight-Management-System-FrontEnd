@@ -4,60 +4,204 @@
             {
                 "entries": [
                     {
-                        "codegenSuccessful": true,
-                        "column": 23,
-                        "durationMicroseconds": 156,
-                        "errorMessage": "",
-                        "functionName": "fill",
-                        "line": 11
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 1468,
+                        "errorMessage": "Cannot access value for name window",
+                        "functionName": "onCompleted",
+                        "line": 9
                     },
                     {
-                        "codegenSuccessful": false,
+                        "codegenSuccessful": true,
                         "column": 19,
-                        "durationMicroseconds": 762,
-                        "errorMessage": "Cannot access value for name networkHandler",
-                        "functionName": "text",
-                        "line": 17
+                        "durationMicroseconds": 137,
+                        "errorMessage": "",
+                        "functionName": "pageMode",
+                        "line": 24
                     },
                     {
                         "codegenSuccessful": true,
-                        "column": 31,
-                        "durationMicroseconds": 72,
+                        "column": 22,
+                        "durationMicroseconds": 44,
                         "errorMessage": "",
-                        "functionName": "alignment",
-                        "line": 19
-                    },
-                    {
-                        "codegenSuccessful": false,
-                        "column": 31,
-                        "durationMicroseconds": 72,
-                        "errorMessage": "Cannot load property AlignBottomRight from QtObject.",
-                        "functionName": "alignment",
+                        "functionName": "displayMode",
                         "line": 25
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 28,
-                        "durationMicroseconds": 869,
-                        "errorMessage": "Cannot access value for name networkHandler",
-                        "functionName": "onClicked",
-                        "line": 30
+                        "column": 9,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "navigateTo",
+                        "line": 29
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 37,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 22
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 28,
-                        "durationMicroseconds": 2203,
-                        "errorMessage": "Cannot access value for name networkHandler",
-                        "functionName": "onClicked",
-                        "line": 37
+                        "durationMicroseconds": 259,
+                        "errorMessage": "Cannot access value for name dashboardAppBar",
+                        "functionName": "topMargin",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 42
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 28,
-                        "durationMicroseconds": 525,
-                        "errorMessage": "Cannot access value for name window",
-                        "functionName": "onCompleted",
-                        "line": 48
+                        "column": 24,
+                        "durationMicroseconds": 98,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 44
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 50
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 68,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 52
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 58
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 66,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 60
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 41,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "iconSource",
+                        "line": 67
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "Cannot access value for name item_flight_info",
+                        "functionName": "y",
+                        "line": 69
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 39,
+                        "durationMicroseconds": 19,
+                        "errorMessage": "Cannot access value for name item_flight_info",
+                        "functionName": "rotation",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 47,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 81
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 66,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 83
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 89
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 91
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 97
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 66,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 99
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 40,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 111
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 113
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "",
+                        "functionName": "icon",
+                        "line": 119
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 60,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onTap",
+                        "line": 121
                     }
                 ],
                 "filePath": "D:/QT/MyWorkspace/QT_Project/views/DashBoard.qml"
