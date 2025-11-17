@@ -54,7 +54,7 @@ Item {
                 }
                 errorLabel.visible = false
                 console.log("登录提交:", username)
-                stackView.push(dashboardPage)
+                stackView.push("DashBoard.qml", {stackView: stackView})
             }
         }
 

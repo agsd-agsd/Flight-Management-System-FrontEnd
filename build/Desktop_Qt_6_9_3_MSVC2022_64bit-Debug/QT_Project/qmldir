@@ -4,5 +4,6 @@ prefer :/qt/QT_Project/
 MainWindow 1.0 MainWindow.qml
 Login 1.0 views/Login.qml
 Register 1.0 views/Register.qml
+DashBoard 1.0 views/DashBoard.qml
 depends QtQuick
 

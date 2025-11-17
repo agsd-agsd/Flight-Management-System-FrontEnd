@@ -13,9 +13,14 @@ FluWindow {
     launchMode: FluWindowType.SingleTask
     fitsAppBarWindows: true
 
-    effect: "gaussian-blur"  // 高斯模糊（毛玻璃核心）
-    tintOpacity: 0.8  // 低透明度（增强霜感，减少着色）
-    blurRadius: 60  // 高模糊半径（更强霜效果）
+    stayTop: false
+    showDark: true
+    showStayTop: true
+
+    //实现亚克力效果
+    effect: "gaussian-blur"
+    tintOpacity: 0.8
+    blurRadius: 60
 
     Component.onCompleted: {
         FluTheme.darkMode = FluThemeType.Dark
@@ -23,6 +28,7 @@ FluWindow {
         FluTheme.animationEnabled = true
         FluTheme.nativeText = true
         FluTheme.blurBehindWindowEnabled = true  // 全局启用模糊
+        FluApp.windowIcon = "qrc:/qt/QT_Project/favicon.ico"
     }
 
     appBar: FluAppBar {
@@ -90,6 +96,7 @@ FluWindow {
         buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
         onPositiveClicked: Qt.quit()
     }
+
     StackView {
         id: stackView
         anchors.fill: parent

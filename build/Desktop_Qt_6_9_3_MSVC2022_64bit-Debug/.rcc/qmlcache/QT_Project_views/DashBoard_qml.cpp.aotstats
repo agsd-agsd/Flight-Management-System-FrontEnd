@@ -1,0 +1,68 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 156,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 19,
+                        "durationMicroseconds": 762,
+                        "errorMessage": "Cannot access value for name networkHandler",
+                        "functionName": "text",
+                        "line": 17
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 72,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 19
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 72,
+                        "errorMessage": "Cannot load property AlignBottomRight from QtObject.",
+                        "functionName": "alignment",
+                        "line": 25
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 869,
+                        "errorMessage": "Cannot access value for name networkHandler",
+                        "functionName": "onClicked",
+                        "line": 30
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 2203,
+                        "errorMessage": "Cannot access value for name networkHandler",
+                        "functionName": "onClicked",
+                        "line": 37
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 525,
+                        "errorMessage": "Cannot access value for name window",
+                        "functionName": "onCompleted",
+                        "line": 48
+                    }
+                ],
+                "filePath": "D:/QT/MyWorkspace/QT_Project/views/DashBoard.qml"
+            }
+        ],
+        "moduleId": "QT_Project(QT_Project)"
+    }
+]

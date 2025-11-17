@@ -3,6 +3,7 @@
     <file alias="MainWindow.qml">D:/QT/MyWorkspace/QT_Project/MainWindow.qml</file>
     <file alias="views/Login.qml">D:/QT/MyWorkspace/QT_Project/views/Login.qml</file>
     <file alias="views/Register.qml">D:/QT/MyWorkspace/QT_Project/views/Register.qml</file>
+    <file alias="views/DashBoard.qml">D:/QT/MyWorkspace/QT_Project/views/DashBoard.qml</file>
     <file alias="favicon.ico">D:/QT/MyWorkspace/QT_Project/favicon.ico</file>
   </qresource>
 </RCC>

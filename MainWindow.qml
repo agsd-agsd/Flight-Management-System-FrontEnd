@@ -4,6 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
 import AppComponents 1.0
+import Qt.labs.platform 1.1
 import "./views"
 FluWindow {
     id: window
@@ -13,22 +14,18 @@ FluWindow {
     launchMode: FluWindowType.SingleTask
     fitsAppBarWindows: true
 
-    stayTop: false
-    showDark: true
-    showStayTop: true
-
     //实现亚克力效果
     effect: "gaussian-blur"
     tintOpacity: 0.8
     blurRadius: 60
 
     Component.onCompleted: {
+        FluApp.useSystemAppBar = false
         FluTheme.darkMode = FluThemeType.Dark
         FluTheme.accentColor = FluColors.Blue
         FluTheme.animationEnabled = true
         FluTheme.nativeText = true
         FluTheme.blurBehindWindowEnabled = true  // 全局启用模糊
-        FluApp.windowIcon = "qrc:/qt/QT_Project/favicon.ico"
     }
 
     appBar: FluAppBar {
@@ -37,6 +34,7 @@ FluWindow {
         showDark: true
         darkClickListener:(button)=>handleDarkChanged(button)
         closeClickListener: ()=>{ dialog_close.open() }
+        z:7
     }
 
     function handleDarkChanged(button){
@@ -87,6 +85,7 @@ FluWindow {
         id:loader_reveal
         anchors.fill: parent
     }
+
     FluContentDialog {
         id: dialog_close
         title: qsTr("退出")

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 12,
-                        "durationMicroseconds": 106,
+                        "durationMicroseconds": 74,
                         "errorMessage": "Cannot load property width from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "width",
                         "line": 10
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessful": false,
                         "column": 13,
-                        "durationMicroseconds": 20,
+                        "durationMicroseconds": 18,
                         "errorMessage": "Cannot load property height from (component in D:/QT/MyWorkspace/QT_Project/Main.qml)::screen with type QObject.",
                         "functionName": "height",
                         "line": 11
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessful": true,
                         "column": 17,
-                        "durationMicroseconds": 135,
+                        "durationMicroseconds": 101,
                         "errorMessage": "",
                         "functionName": "launchMode",
                         "line": 13
@@ -33,7 +33,7 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Functions without type annotations won't be compiled",
                         "functionName": "handleDarkChanged",
-                        "line": 36
+                        "line": 42
                     },
                     {
                         "codegenSuccessful": false,
@@ -41,23 +41,23 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Functions without type annotations won't be compiled",
                         "functionName": "distance",
-                        "line": 68
+                        "line": 74
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 5,
-                        "durationMicroseconds": 204,
+                        "durationMicroseconds": 175,
                         "errorMessage": "",
                         "functionName": "changeDark",
-                        "line": 72
+                        "line": 78
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 28,
-                        "durationMicroseconds": 227,
+                        "durationMicroseconds": 239,
                         "errorMessage": "",
                         "functionName": "onCompleted",
-                        "line": 20
+                        "line": 25
                     },
                     {
                         "codegenSuccessful": false,
@@ -65,31 +65,31 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Functions without type annotations won't be compiled",
                         "functionName": "darkClickListener",
-                        "line": 32
+                        "line": 38
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 27,
-                        "durationMicroseconds": 47,
+                        "durationMicroseconds": 40,
                         "errorMessage": "Cannot generate efficient code for LoadClosure",
                         "functionName": "darkClickListener",
-                        "line": 32
+                        "line": 38
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 29,
-                        "durationMicroseconds": 51,
+                        "durationMicroseconds": 48,
                         "errorMessage": "Cannot retrieve a non-object type by ID: dialog_close",
                         "functionName": "closeClickListener",
-                        "line": 33
+                        "line": 39
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 29,
-                        "durationMicroseconds": 34,
+                        "durationMicroseconds": 32,
                         "errorMessage": "Cannot generate efficient code for LoadClosure",
                         "functionName": "closeClickListener",
-                        "line": 33
+                        "line": 39
                     },
                     {
                         "codegenSuccessful": false,
@@ -97,7 +97,7 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"target\".",
                         "functionName": "target",
-                        "line": 55
+                        "line": 61
                     },
                     {
                         "codegenSuccessful": false,
@@ -105,7 +105,7 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"darkToLight\".",
                         "functionName": "darkToLight",
-                        "line": 57
+                        "line": 63
                     },
                     {
                         "codegenSuccessful": false,
@@ -113,7 +113,7 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find signal \"animationFinished\".",
                         "functionName": "onAnimationFinished",
-                        "line": 58
+                        "line": 64
                     },
                     {
                         "codegenSuccessful": false,
@@ -121,7 +121,7 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find signal \"imageChanged\".",
                         "functionName": "onImageChanged",
-                        "line": 62
+                        "line": 68
                     },
                     {
                         "codegenSuccessful": false,
@@ -129,31 +129,31 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"fill\".",
                         "functionName": "fill",
-                        "line": 56
+                        "line": 62
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 23,
-                        "durationMicroseconds": 39,
+                        "durationMicroseconds": 37,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 82
+                        "line": 88
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 22,
-                        "durationMicroseconds": 104,
+                        "durationMicroseconds": 94,
                         "errorMessage": "",
                         "functionName": "buttonFlags",
-                        "line": 90
+                        "line": 96
                     },
                     {
                         "codegenSuccessful": true,
                         "column": 28,
-                        "durationMicroseconds": 80,
+                        "durationMicroseconds": 71,
                         "errorMessage": "",
                         "functionName": "onPositiveClicked",
-                        "line": 91
+                        "line": 97
                     },
                     {
                         "codegenSuccessful": false,
@@ -161,7 +161,7 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"fill\".",
                         "functionName": "fill",
-                        "line": 95
+                        "line": 102
                     },
                     {
                         "codegenSuccessful": false,
@@ -169,39 +169,39 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Cannot resolve property type StackView for binding on stackView.",
                         "functionName": "stackView",
-                        "line": 96
-                    },
-                    {
-                        "codegenSuccessful": false,
-                        "column": 30,
-                        "durationMicroseconds": 82,
-                        "errorMessage": "Cannot access value for name Easing",
-                        "functionName": "type",
                         "line": 103
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 64,
+                        "durationMicroseconds": 78,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
-                        "line": 112
+                        "line": 110
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 55,
+                        "durationMicroseconds": 62,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
-                        "line": 121
+                        "line": 119
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 65,
+                        "durationMicroseconds": 54,
                         "errorMessage": "Cannot access value for name Easing",
                         "functionName": "type",
-                        "line": 130
+                        "line": 128
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 30,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "Cannot access value for name Easing",
+                        "functionName": "type",
+                        "line": 137
                     }
                 ],
                 "filePath": "D:/QT/MyWorkspace/QT_Project/Main.qml"
