@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/QT_Project/">
-    <file alias="views/qmldir">D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/QT_Project/views/qmldir</file>
-    <file alias="components/qmldir">D:/QT/MyWorkspace/QT_Project/build/Desktop_Qt_6_9_3_MSVC2022_64bit-Debug/QT_Project/components/qmldir</file>
-  </qresource>
-</RCC>
-
