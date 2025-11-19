@@ -1,0 +1,123 @@
+UI颜色：
+    白：RGB（255，255，255） #ffffff
+    黑：RGB（20，20，20）  #141414
+    绿：RGB（210，245，100） #d2f564
+    橙：RGB（255，135，25） #ff8819
+
+
+##用户端：
+    基本：航班查询、购票、退票 ； 登录界面 ；个人界面 ； 国际和国内分开
+    拓展: 人工/AI客服 ？ ； 电子登机牌 ； 多语言切换；乘客身份（学生，老师等做优惠）；行李托运选择 ： 餐食选择 ； 中转航班？ ； 旅游帖子？ ；临起飞邮件提醒 ；  定位确定始发？
+        ； AI识别语音输入起始机场？ ； 天气展示？ 
+
+##管理员端
+    基本：更新航班信息（以随机的形式） ； 查询某航班的信息（包含用户信息）； 修改删除航班信息 ； 管理员密码登录 
+    拓展：人工客服消息回复？ ；  管理员操作日志 ； 
+
+##后端服务器端
+    服务器api： https://sixonezero.goutou.space
+    OR 本地docker镜像： goutouz/backend
+
+    所有数据类型：application/json
+    返回类型{
+        success,  #布尔类型
+        message,  #如果成功
+        errors,    #如果失败
+    }
+
+    测试接口：/Info
+    post{
+        email,
+    }back{
+        success,
+        message OR errors,
+        id,
+        username,
+    }
+    
+    注册接口：/Register
+    post{
+        email, 
+        username, 
+        password,
+    }back{
+        success,
+        message OR errors,
+    }
+
+    登录接口: /Login
+    post{
+        email,
+        password,
+    }back{
+        success,
+        message OR errors,
+        userid,
+        email,
+        username,
+    }
+
+    查票总数：/GetTicketsNum
+    post{
+        email,
+        id,
+        departureairport, #始发机场
+        arrivalairport, #终到机场
+        time, #日期 例："2025-11-20"
+    }back{
+        success,
+        message OR errors,
+        ticketsnum, #int
+    }
+
+    随机加票：/PushTickets #管理员端
+    post{
+        starttime, #加票选择日期第一天 例："2025-11-20"
+        lasttime, #加票日期长度
+        number, #其中每天加多少张
+        #如"2025-11-20" 4 20 表示在11月20以及以后一共四天，每天随机加20张票
+    }back{
+        success,
+        message OR errors,
+    }
+
+    查票列表：/GetTickets
+    post{
+        email,
+        id,
+        sort, #排序方式 "starttime""price""endtime"
+        time, #例："2025-11-20"
+        departureairport,
+        arrivalairport,
+        offset, #分页用，已有数据数量
+        limit, #分页用，这次请求数量
+    }back{
+        success,
+        message OR errors,
+        data{
+            ticketid,
+            flightnumber, #飞机编号
+            departuretime,
+            arrivaltime,
+            price,
+        } #数据表，注意拆分数据
+    }
+
+    查票详情: /GetTicketDetails
+    post{
+        email,
+        id,
+        ticketid,
+    }back{
+        success,
+        message OR errors,
+        ticketid,
+        departureairport,
+        arrivalairport,
+        flightnumber,
+        departuretime,
+        arrivaltime,
+        price,
+    }
+
+
