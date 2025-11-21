@@ -120,4 +120,24 @@ UI颜色：
         price,
     }
 
+    查剩余票数：/GetRemainingTicketsNum
+    post{
+        email,
+        id,
+        ticketid,
+    }back{
+        success,
+        message OR errors,
+        remainingnumber, #剩余票数
+    }
+
+    买票：/BuyTicket
+    post{
+        email,
+        id,
+        ticketid,
+    }back{
+        success,
+        message OR errors,
+    }
 
