@@ -44,24 +44,26 @@ Item {
             text: "登录"
             Layout.preferredWidth: 80
             Layout.alignment: Qt.AlignHCenter
-
             onClicked: {
-                var email = usernameField.text.trim()
-                var password = passwordField.text
-                var emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                if (!emailReg.test(email)) {
-                    errorLabel.text = qsTr("请输入正确的邮箱地址")
-                    errorLabel.visible = true
-                    return
-                }
-                if (password.length < 6) {
-                    errorLabel.text = qsTr("密码至少6位")
-                    errorLabel.visible = true
-                    return
-                }
-                errorLabel.visible = false
-                console.log("登录提交:", email)
-                networkHandler.login(email, password)
+                // 注释掉实际登录验证
+                // var email = usernameField.text.trim()
+                // var password = passwordField.text
+                // if (!emailReg.test(email)) {
+                //     errorLabel.text = qsTr("请输入正确的邮箱地址")
+                //     errorLabel.visible = true
+                //     return
+                // }
+                // if (password.length < 6) {
+                //     errorLabel.text = qsTr("密码至少6位")
+                //     errorLabel.visible = true
+                //     return
+                // }
+                // errorLabel.visible = false
+                // console.log("登录提交:", email)
+                // networkHandler.login(email, password)
+
+                // 测试阶段：无需验证，直接跳转
+                stackView.push("DashBoard.qml", {stackView: stackView})
             }
         }
 
