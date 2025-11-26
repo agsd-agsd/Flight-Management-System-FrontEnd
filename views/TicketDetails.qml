@@ -19,6 +19,11 @@ FluPage {
     property string passengerName: ""
     property real price: 0
 
+    // 二维码配置（最小集成）
+    property string qrText: flightNo + "|" + ticketId
+    property color qrColor: "#000000"
+    property int qrBaseSize: 140
+
     // 响应式尺寸因子
     property real w: width
     property real scale: Math.max(0.9, Math.min(1.4, w / 1000))
@@ -180,30 +185,18 @@ FluPage {
                 anchors.margins: 20 * scale
                 spacing: 20 * scale
 
-                // 二维码
-                Rectangle {
-                    width: 140 * scale
-                    height: 140 * scale
-                    radius: 8
-                    color: "#ffffff"
-                    border.color: "#bbbbbb"
-                    border.width: 1
+                // 二维码（使用 FluQRCode）
+                Item {
+                    width: Math.round(qrBaseSize * scale)
+                    height: Math.round(qrBaseSize * scale)
                     Layout.preferredWidth: width
                     Layout.preferredHeight: height
-
-                    Grid {
+                    Rectangle { anchors.fill: parent; color: "#ffffff"; radius: 8; border.color: "#bbbbbb"; border.width: 1 }
+                    FluQRCode {
                         anchors.centerIn: parent
-                        columns: 14
-                        rows: 14
-                        spacing: 1
-                        Repeater {
-                            model: 196
-                            delegate: Rectangle {
-                                width: 7 * scale
-                                height: 7 * scale
-                                color: ((index * 37) % 7 < 3) ? "black" : "white"
-                            }
-                        }
+                        color: qrColor
+                        text: qrText
+                        size: Math.round(qrBaseSize * scale)
                     }
                 }
 
