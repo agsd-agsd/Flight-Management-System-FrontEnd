@@ -20,14 +20,16 @@ Item {
     FluNavigationView {
         id: userNavView
         anchors.fill: parent
-        anchors.topMargin: dashboardAppBar.height  // 避开 AppBar
-        pageMode: FluNavigationViewType.NoStack
+        // 删除未定义的 dashboardAppBar.height 造成报错
+        // anchors.topMargin: dashboardAppBar.height
+        pageMode: FluNavigationViewType.Stack
         displayMode: FluNavigationViewType.Auto
         visible: true
 
         // 简化跳转函数
         function navigateTo(url) {
-            userNavView.push(url);
+            // 传递 navView 和外层 stackView（用于以后需要返回到登录）
+            userNavView.push(url, { navView: userNavView, stackView: stackView })
         }
 
         // 主菜单分组（核心功能）
@@ -40,7 +42,7 @@ Item {
                 id: item_home
                 title: qsTr("首页")
                 icon: FluentIcons.Home
-                url: "qrc:/qt/Flight_Management_System_Client/views/HomeView.qml"
+                url: "qrc:/qt/QT_Project/views/HomeView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
 
@@ -48,7 +50,7 @@ Item {
                 id: item_find
                 title: qsTr("发现")
                 icon: FluentIcons.QuickNote
-                url: "qrc:/qt/Flight_Management_System_Client/views/FindView.qml"
+                url: "qrc:/qt/QT_Project/views/FindView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
 
@@ -79,7 +81,7 @@ Item {
                 id: item_flight_favorite
                 title: qsTr("我的收藏")
                 icon: FluentIcons.FavoriteStar
-                url: "qrc:/qt/Flight_Management_System_Client/views/FlightFavoriteView.qml"
+                url: "qrc:/qt/QT_Project/views/FlightFavoriteView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
 
@@ -87,7 +89,7 @@ Item {
                 id: item_orders
                 title: qsTr("我的订单")
                 icon: FluentIcons.ShoppingCart
-                url: "qrc:/qt/Flight_Management_System_Client/views/OrdersView.qml"
+                url: "qrc:/qt/QT_Project/views/OrdersView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
 
@@ -95,7 +97,7 @@ Item {
                 id: item_profile
                 title: qsTr("个人中心")
                 icon: FluentIcons.EaseOfAccess
-                url: "qrc:/qt/Flight_Management_System_Client/views/ProfileView.qml"
+                url: "qrc:/qt/QT_Project/views/ProfileView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
         }
@@ -109,7 +111,7 @@ Item {
                 id: item_about
                 title: qsTr("关于我们")
                 icon: FluentIcons.Info
-                url: "qrc:/qt/Flight_Management_System_Client/views/AboutView.qml"
+                url: "qrc:/qt/QT_Project/views/AboutView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
 
@@ -117,7 +119,7 @@ Item {
                 id: item_client_server
                 title: qsTr("客服")
                 icon: FluentIcons.Message
-                url: "qrc:/qt/Flight_Management_System_Client/views/ClientServerView.qml"
+                url: "qrc:/qt/QT_Project/views/ClientServerView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
         }

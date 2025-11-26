@@ -4,8 +4,9 @@ import QtQuick.Layouts 1.15
 import FluentUI 1.0
 
 Item {
-    // 关键：接受 stackView 作为属性以支持页面跳转
     property StackView stackView
+    property var navView
+    property string url: ""    // 吸收导航附加的 url 避免报错
 
     ColumnLayout {
         anchors.centerIn: parent
@@ -17,19 +18,31 @@ Item {
             Layout.alignment: Qt.AlignHCenter
         }
 
-        // 你的航班列表可以放在这里，先省略用于测试
-        // 真实情况下应该用 Repeater/ListView/FluTableView 等显示航班
-
         FluButton {
             text: "测试详情页跳转"
-            Layout.preferredWidth: 120
+            Layout.preferredWidth: 140
             Layout.alignment: Qt.AlignHCenter
             onClicked: {
-                // 跳转到 TicketDetail.qml，并传递一个测试票id
-                if (stackView) {
-                    stackView.push("TicketDetail.qml", {ticketId: 123, stackView: stackView})
+                console.log("Push TicketDetails, navView=", navView)
+                var payload = {
+                    navView: navView,
+                    stackView: stackView,
+                    ticketId: 987654321,
+                    flightNo: "CA1832",
+                    depart: "广州白云 CAN",
+                    arrive: "成都天府 TFU",
+                    departTime: "2025-12-12 14:20",
+                    arriveTime: "2025-12-12 16:55",
+                    cabin: "公务舱",
+                    seat: "3C",
+                    passengerName: "李四",
+                    price: 2360.50,
+                    status: "已支付"
+                }
+                if (navView) {
+                    navView.push("qrc:/qt/QT_Project/views/TicketDetails.qml", payload)
                 } else {
-                    console.log("stackView is null, can't push!")
+                    console.log("navView 未传入")
                 }
             }
         }
