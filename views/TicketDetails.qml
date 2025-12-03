@@ -49,7 +49,7 @@ FluPage {
                 onClicked: {
                     if (navView && navView.back) navView.back()
                     else if (navView && navView.goBack) navView.goBack()
-                    else if (navView) navView.push("qrc:/qt/QT_Project/views/FlightInfoView.qml", { navView: navView })
+                    else if (navView) navView.push("qrc:/qt/QT_Project/views/FlightInfo.qml", { navView: navView })
                 }
             }
         }

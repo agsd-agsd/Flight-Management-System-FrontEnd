@@ -58,7 +58,7 @@ Item {
                 id: item_flight_info
                 title: qsTr("全部航班")
                 icon: FluentIcons.Airplane
-                url: "qrc:/qt/QT_Project/views/FlightInfoView.qml"
+                url: "qrc:/qt/QT_Project/views/FlightInfo.qml"
                 onTap: { userNavView.navigateTo(url); }
                 iconDelegate: Component {
                     Item {

@@ -43,7 +43,7 @@ qt_add_qml_module(${PROJECT_NAME}
     SOURCES ${SOURCE_FILES} ${HEADER_FILES}
     RESOURCES ${RESOURCES_FILES}
     QML_FILES ${QML_FILES}
-    QML_FILES views/FlightInfoView.qml
+    QML_FILES views/FlightInfo.qml
     QML_FILES views/TicketDetails.qml
 )
 
