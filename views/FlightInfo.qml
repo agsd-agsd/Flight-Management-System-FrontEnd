@@ -258,19 +258,15 @@ FluContentPage{
 
                             onClicked: {
                                 if(navView){
+                                    // 假设 modelData 中包含 ticketid 字段
+                                    // 如果后端返回的是 flightid，请将 modelData.ticketid 改为 modelData.flightid 或 modelData.id
+                                    var tId = modelData.ticketid || modelData.id || 0
+                                    
                                     navView.push("qrc:/qt/QT_Project/views/TicketDetails.qml",{
                                         "navView": navView,
-                                        "flightNo": modelData.flightnumber,
-                                        "depart": modelData.departureairport || comboDep.currentText,
-                                        "arrive": modelData.arrivalairport || comboArr.currentText,
-                                        "departTime": modelData.departuretime,
-                                        "arriveTime": modelData.arrivaltime,
-                                        "price": modelData.price,
-                                        "ticketId": 0,
-                                        "passengerName": "待定",
-                                        "seat": "待选",
-                                        "cabin": "经济舱",
-                                        "status": "未预定"
+                                        "userEmail": userEmail,
+                                        "userId": userId,
+                                        "ticketId": tId
                                     })
                                 } else {
                                     console.log("Error: navView is undefined")

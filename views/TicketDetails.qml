@@ -2,22 +2,71 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
+import NetworkHandler 1.0
 
 FluPage {
     id: page
 
     property var navView
     property var stackView
+    property string userEmail: ""
+    property string userId: ""
     property int ticketId: 0
-    property string flightNo: ""
-    property string depart: ""
-    property string arrive: ""
-    property string departTime: ""
-    property string arriveTime: ""
-    property string cabin: ""
-    property string seat: ""
-    property string passengerName: ""
-    property real price: 0
+
+    // 详情数据（初始为空，等待接口返回）
+    property string flightNo: "--"
+    property string depart: "--"
+    property string arrive: "--"
+    property string departTime: "--:--"
+    property string arriveTime: "--:--"
+    property string cabin: "经济舱"
+    property string seat: "待选"
+    property string passengerName: "待定"
+    property real price: 0.0
+
+    // 网络请求组件
+    NetworkHandler {
+        id: detailHandler
+        onRequestSuccess: function(res) {
+            console.log("【TicketDetails】详情返回:", JSON.stringify(res))
+            if (res.success) {
+                // 更新界面数据
+                flightNo = res.flightnumber || "--"
+                depart = res.departureairport || "--"
+                arrive = res.arrivalairport || "--"
+                departTime = formatTimeStr(res.departuretime)
+                arriveTime = formatTimeStr(res.arrivaltime)
+                price = res.price || 0
+                // 如果后端返回了 ticketid，也可以更新
+                if (res.ticketid) ticketId = res.ticketid
+            } else {
+                showError("获取详情失败: " + (res.message || "未知错误"))
+            }
+        }
+        onRequestFailed: function(err) {
+            showError("网络错误: " + err)
+        }
+    }
+
+    // 辅助函数:转换时间
+    function formatTimeStr(rawStr) {
+        if (!rawStr) return "--:--"
+        var date = new Date(rawStr)
+        return Qt.formatTime(date, "hh:mm")
+    }
+
+    Component.onCompleted: {
+        if (ticketId !== 0) {
+            console.log("正在请求票务详情, ID:", ticketId)
+            var params = {
+                "email": userEmail,
+                "id": parseInt(userId),
+                "ticketid": ticketId
+            }
+            // 假设接口路径为 /GetTicketDetails，请根据实际情况修改
+            detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
+        }
+    }
 
     // 二维码配置（最小集成）
     property string qrText: flightNo + "|" + ticketId
