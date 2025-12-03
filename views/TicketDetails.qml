@@ -47,9 +47,17 @@ FluPage {
             FluButton {
                 text: "返回航班列表"
                 onClicked: {
-                    if (navView && navView.back) navView.back()
-                    else if (navView && navView.goBack) navView.goBack()
-                    else if (navView) navView.push("qrc:/qt/QT_Project/views/FlightInfo.qml", { navView: navView })
+                    // 尝试使用 StackView 附加属性返回
+                    if (page.StackView.view) {
+                        page.StackView.view.pop()
+                        return
+                    }
+                    // 尝试使用 navView.pop()
+                    if (navView && typeof navView.pop === 'function') {
+                        navView.pop()
+                        return
+                    }
+                    console.log("Return failed: No valid pop method found")
                 }
             }
         }
