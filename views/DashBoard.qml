@@ -20,7 +20,7 @@ Item {
     FluNavigationView {
         id: userNavView
         anchors.fill: parent
-        anchors.topMargin: dashboardAppBar.height  // 避开 AppBar
+        //anchors.topMargin: dashboardAppBar.height  // 避开 AppBar
         pageMode: FluNavigationViewType.NoStack
         displayMode: FluNavigationViewType.Auto
         visible: true
@@ -56,7 +56,7 @@ Item {
                 id: item_flight_info
                 title: qsTr("全部航班")
                 icon: FluentIcons.Airplane
-                url: "qrc:/qt/Flight_Management_System_Client/views/FlightInfoView.qml"
+                url: "qrc:/qt/QT_Project/views/FlightInfo.qml"
                 onTap: { userNavView.navigateTo(url); }
                 iconDelegate: Component {
                     Item {

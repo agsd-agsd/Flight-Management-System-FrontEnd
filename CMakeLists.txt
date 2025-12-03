@@ -25,6 +25,7 @@ set(QML_FILES
     views/Login.qml
     views/Register.qml
     views/DashBoard.qml
+    views/FlightInfo.qml
 )
 
 set(RESOURCES_FILES
@@ -49,7 +50,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
+    # WIN32_EXECUTABLE TRUE
 )
 
 target_link_libraries(${PROJECT_NAME}

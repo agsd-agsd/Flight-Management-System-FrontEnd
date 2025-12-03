@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<CircularReveal>("AppComponents", 1, 0, "CircularReveal");
 
+    qmlRegisterType<NetworkHandler>("NetworkHandler", 1, 0, "NetworkHandler");
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,
