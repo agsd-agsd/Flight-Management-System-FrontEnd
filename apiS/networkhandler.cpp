@@ -3,7 +3,9 @@
 #include <QNetworkReply>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray> // [新增]
 #include <QUrl>
+#include <QUrlQuery> // [新增]
 #include <QNetworkRequest>
 #include <QDebug>
 #include <QSslError>
@@ -14,10 +16,103 @@ NetworkHandler::NetworkHandler(QObject *parent)
     : QObject(parent),
     m_networkManager(new QNetworkAccessManager(this))
 {
+    // [新增] 初始化基地址
+    m_baseUrl = "https://sixonezero.goutou.space";
     qDebug() << "[NetworkHandler] constructed. SSL supported? " << QSslSocket::supportsSsl();
 }
 
-// 登录：真实 POST 到 /Login，使用邮箱和密码
+
+// [新增] 通用请求实现
+void NetworkHandler::request(const QString &apiPath, Method method, const QVariantMap &params, const QString &token)
+{
+    // 1. 拼接 URL (使用基地址 + 传入的 API 路径)
+    QString fullUrlStr = m_baseUrl + apiPath;
+
+    // 如果是 GET 请求且有参数，拼接到 URL 后面
+    if (method == GET && !params.isEmpty()) {
+        QUrlQuery query;
+        for (auto it = params.begin(); it != params.end(); ++it) {
+            query.addQueryItem(it.key(), it.value().toString());
+        }
+        fullUrlStr += "?" + query.toString();
+    }
+
+    QUrl url(fullUrlStr);
+    QNetworkRequest req(url);
+    req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    req.setTransferTimeout(15000); // 统一超时设置
+
+    // 2. 如果有 Token，设置 Header
+    if (!token.isEmpty()) {
+        req.setRawHeader("Authorization", ("Bearer " + token).toUtf8());
+    }
+
+    qDebug() << "[NetworkHandler] Generic Request:" << (method == GET ? "GET" : "POST") << url;
+
+    // 3. 发送请求
+    QNetworkReply *reply = nullptr;
+    if (method == GET) {
+        reply = m_networkManager->get(req);
+    } else {
+        // POST: 将参数转为 JSON
+        QJsonObject json = QJsonObject::fromVariantMap(params);
+        QJsonDocument doc(json);
+        reply = m_networkManager->post(req, doc.toJson(QJsonDocument::Compact));
+    }
+
+    // 4. 处理响应
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        // 先获取状态码
+        int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        QString errorString = reply->errorString();
+
+        qDebug() << "[NetworkHandler] HTTP Status:" << statusCode;
+
+        // 【关键修改】如果出错了（Status 0 或其他错误），不要强行 readAll，否则会报 device not open
+        if (reply->error() != QNetworkReply::NoError) {
+            qDebug() << "[NetworkHandler] ❌ 请求失败 (网络层):" << errorString;
+
+            // 如果不是 0 (比如 400/500)，尝试读一下服务器有没有返回错误详情
+            if (reply->isOpen() && statusCode > 0) {
+                QByteArray errorBody = reply->readAll();
+                qDebug() << "[NetworkHandler] 服务器错误详情:" << errorBody;
+                emit requestFailed("服务器拒绝: " + errorBody);
+            } else {
+                // 如果是 0 (直接断网/SSL错误)，直接报网络错
+                emit requestFailed("网络连接失败: " + errorString);
+            }
+
+            reply->deleteLater();
+            return;
+        }
+
+        QByteArray resp = reply->readAll();
+        QJsonDocument doc = QJsonDocument::fromJson(resp);
+
+        // 简单判断 JSON 有效性
+        if (doc.isNull()) {
+            emit requestFailed("服务器返回无效数据");
+            return;
+        }
+
+        // 成功！将 JSON 转为 QVariant 发回给 QML
+        if (doc.isObject()) {
+            emit requestSuccess(doc.object().toVariantMap());
+        } else if (doc.isArray()) {
+            emit requestSuccess(doc.array().toVariantList());
+        } else {
+            emit requestSuccess(QVariant());
+        }
+    });
+
+    // 简单 SSL 处理
+    connect(reply, &QNetworkReply::sslErrors, reply, [reply](){
+        reply->ignoreSslErrors();
+    });
+}
+
+
+
 void NetworkHandler::login(const QString &email, const QString &password)
 {
     qDebug() << "[NetworkHandler] login called with email:" << email;
@@ -101,7 +196,8 @@ void NetworkHandler::login(const QString &email, const QString &password)
     });
 }
 
-// 注册：真实 POST 到 /Register，使用邮箱、用户名、密码
+
+
 void NetworkHandler::registerUser(const QString &email, const QString &username, const QString &password)
 {
     qDebug() << "[NetworkHandler] register called with email:" << email << "username:" << username;
