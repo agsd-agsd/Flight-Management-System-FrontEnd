@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     NetworkHandler *handler = new NetworkHandler(&app);
     engine.rootContext()->setContextProperty("networkHandler", handler);
 
+    qmlRegisterType<NetworkHandler>("NetworkHandler", 1, 0, "NetworkHandler");
     qmlRegisterType<CircularReveal>("AppComponents", 1, 0, "CircularReveal");
 
     QObject::connect(
