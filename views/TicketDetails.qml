@@ -78,15 +78,14 @@ FluPage {
     property real scale: Math.max(0.9, Math.min(1.4, w / 1000))
     function fitWidth(base, max) { return Math.min(w - 64, Math.min(max, base * scale)) }
 
-    header: Rectangle {
+    header: Item {
         height: 56
-        color: "transparent"
         RowLayout {
             anchors.fill: parent
             anchors.leftMargin: 16
             anchors.rightMargin: 16
             spacing: 12
-            Text {
+            FluText {
                 text: "机票详情"
                 color: "#ffffff"
                 font.pixelSize: 18 * scale
@@ -121,14 +120,15 @@ FluPage {
         spacing: 20 * scale
 
         // 票号卡片
-        Rectangle {
+        FluRectangle {
             width: fitWidth(800, 1000)
             height: 64 * scale
-            radius: 10
+            radius: [10,10,10,10]
             color: "#262626"
-            border.color: "#404040"
+            borderColor: "#404040"
+            borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
-            Text {
+            FluText {
                 anchors.centerIn: parent
                 text: "票号: " + ticketId
                 color: "white"
@@ -138,12 +138,13 @@ FluPage {
         }
 
         // 航线条（出发 → 到达）
-        Rectangle {
+        FluRectangle {
             width: fitWidth(900, 1100)
             height: 96 * scale
-            radius: 12
+            radius: [12,12,12,12]
             color: "#303030"
-            border.color: "#454545"
+            borderColor: "#454545"
+            borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
 
             RowLayout {
@@ -154,16 +155,17 @@ FluPage {
                 ColumnLayout {
                     spacing: 6 * scale
                     Layout.fillWidth: true
-                    Text { text: depart; color: "#ffffff"; font.pixelSize: 18 * scale; font.bold: true }
-                    Text { text: departTime; color: "#cccccc"; font.pixelSize: 14 * scale }
+                    FluText { text: depart; color: "#ffffff"; font.pixelSize: 18 * scale; font.bold: true }
+                    FluText { text: departTime; color: "#cccccc"; font.pixelSize: 14 * scale }
                 }
 
-                Rectangle {
-                    width: 60 * scale; height: 40 * scale; radius: 20 * scale
+                FluRectangle {
+                    width: 60 * scale; height: 40 * scale
+                    radius: [20 * scale, 20 * scale, 20 * scale, 20 * scale]
                     color: "#505050"
                     Layout.preferredWidth: width
                     Layout.preferredHeight: height
-                    Text {
+                    FluText {
                         anchors.centerIn: parent
                         text: "→"
                         color: "white"
@@ -174,8 +176,8 @@ FluPage {
                 ColumnLayout {
                     spacing: 6 * scale
                     Layout.fillWidth: true
-                    Text { text: arrive; color: "#ffffff"; font.pixelSize: 18 * scale; font.bold: true }
-                    Text { text: arriveTime; color: "#cccccc"; font.pixelSize: 14 * scale }
+                    FluText { text: arrive; color: "#ffffff"; font.pixelSize: 18 * scale; font.bold: true }
+                    FluText { text: arriveTime; color: "#cccccc"; font.pixelSize: 14 * scale }
                 }
             }
         }
@@ -190,13 +192,14 @@ FluPage {
                     "舱位: " + cabin,
                     "座位: " + seat
                 ]
-                delegate: Rectangle {
-                    radius: 8
+                delegate: FluRectangle {
+                    radius: [8,8,8,8]
                     color: "#404040"
-                    border.color: "#555555"
+                    borderColor: "#555555"
+                    borderWidth: 1
                     height: 34 * scale
                     width: Math.max(110 * scale, label.implicitWidth + 24 * scale)
-                    Text {
+                    FluText {
                         id: label
                         anchors.centerIn: parent
                         text: modelData
@@ -208,33 +211,37 @@ FluPage {
         }
 
         // 票面详细信息（和登机牌同一 Column）
-        Rectangle {
+        FluRectangle {
             width: fitWidth(900, 1100)
-            radius: 12
+            height: detailsCol.height + 40 * scale
+            radius: [12,12,12,12]
             color: "#262626"
-            border.color: "#404040"
+            borderColor: "#404040"
+            borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
 
             Column {
-                anchors.fill: parent
-                anchors.margins: 20 * scale
+                id: detailsCol
+                width: parent.width - 40 * scale
+                anchors.centerIn: parent
                 spacing: 10 * scale
-                Text { text: "乘客: " + passengerName; color: "white"; font.pixelSize: 15 * scale }
-                Text { text: "出发: " + depart; color: "white"; font.pixelSize: 14 * scale }
-                Text { text: "到达: " + arrive; color: "white"; font.pixelSize: 14 * scale }
-                Text { text: "起飞时间: " + departTime; color: "white"; font.pixelSize: 14 * scale }
-                Text { text: "到达时间: " + arriveTime; color: "white"; font.pixelSize: 14 * scale }
-                Text { text: "价格: ￥" + price.toFixed(2); color: "white"; font.pixelSize: 14 * scale }
+                FluText { text: "乘客: " + passengerName; color: "white"; font.pixelSize: 15 * scale }
+                FluText { text: "出发: " + depart; color: "white"; font.pixelSize: 14 * scale }
+                FluText { text: "到达: " + arrive; color: "white"; font.pixelSize: 14 * scale }
+                FluText { text: "起飞时间: " + departTime; color: "white"; font.pixelSize: 14 * scale }
+                FluText { text: "到达时间: " + arriveTime; color: "white"; font.pixelSize: 14 * scale }
+                FluText { text: "价格: ￥" + price.toFixed(2); color: "white"; font.pixelSize: 14 * scale }
             }
         }
 
         // 电子登机牌（左二维码 右信息）
-        Rectangle {
+        FluRectangle {
             width: fitWidth(900, 1100)
             height: 180 * scale
-            radius: 12
+            radius: [12,12,12,12]
             color: "#202020"
-            border.color: "#555555"
+            borderColor: "#555555"
+            borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
 
             RowLayout {
@@ -248,7 +255,13 @@ FluPage {
                     height: Math.round(qrBaseSize * scale)
                     Layout.preferredWidth: width
                     Layout.preferredHeight: height
-                    Rectangle { anchors.fill: parent; color: "#ffffff"; radius: 8; border.color: "#bbbbbb"; border.width: 1 }
+                    FluRectangle { 
+                        anchors.fill: parent
+                        color: "#ffffff"
+                        radius: [8,8,8,8]
+                        borderColor: "#bbbbbb"
+                        borderWidth: 1
+                    }
                     FluQRCode {
                         anchors.centerIn: parent
                         color: qrColor
@@ -261,11 +274,11 @@ FluPage {
                 ColumnLayout {
                     spacing: 8 * scale
                     Layout.fillWidth: true
-                    Text { text: "电子登机牌"; color: "#ffffff"; font.pixelSize: 16 * scale; font.bold: true }
-                    Text { text: "航班: " + flightNo; color: "#cccccc"; font.pixelSize: 13 * scale }
-                    Text { text: "乘客: " + passengerName; color: "#cccccc"; font.pixelSize: 13 * scale }
-                    Text { text: "座位: " + seat + "   舱位: " + cabin; color: "#cccccc"; font.pixelSize: 13 * scale }
-                    Text { text: "请在登机口出示此电子登机牌"; color: "#aaaaaa"; font.pixelSize: 12 * scale }
+                    FluText { text: "电子登机牌"; color: "#ffffff"; font.pixelSize: 16 * scale; font.bold: true }
+                    FluText { text: "航班: " + flightNo; color: "#cccccc"; font.pixelSize: 13 * scale }
+                    FluText { text: "乘客: " + passengerName; color: "#cccccc"; font.pixelSize: 13 * scale }
+                    FluText { text: "座位: " + seat + "   舱位: " + cabin; color: "#cccccc"; font.pixelSize: 13 * scale }
+                    FluText { text: "请在登机口出示此电子登机牌"; color: "#aaaaaa"; font.pixelSize: 12 * scale }
                 }
             }
         }

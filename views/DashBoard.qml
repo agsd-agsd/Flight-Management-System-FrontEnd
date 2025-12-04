@@ -7,10 +7,19 @@ import FluentUI 1.0
     property StackView stackView  // 用于返回登录
 
     Component.onCompleted: {
-        // 进入仪表盘：扩大主窗口大小
+        // 进入仪表盘：扩大主窗口大小并居中
         if (window) {
-            window.width = Math.max(800, Screen.width * 0.6)
-            window.height = Math.max(600, Screen.height * 0.6)
+            // 长宽增加三分之一 (0.6 -> 0.8)
+            var newW = Math.max(800, Screen.width * 0.8)
+            var newH = Math.max(600, Screen.height * 0.8)
+            
+            window.width = newW
+            window.height = newH
+            
+            // 居中显示
+            window.x = (Screen.width - newW) / 2
+            window.y = (Screen.height - newH) / 2
+            
             window.requestActivate()
         }
         console.log("Dashboard 加载成功")
