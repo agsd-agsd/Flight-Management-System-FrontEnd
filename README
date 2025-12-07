@@ -141,3 +141,43 @@ UI颜色：
         message OR errors,
     }
 
+    查询自己已买票数量：/GetOwnTicketsNum
+    post{
+        email,
+        userid,
+    }back{
+        success,
+        message OR errors,
+        number,
+    }
+
+    查询自己已买票： /GetOwnTickets
+    post{
+        email,
+        userid,
+        offset,
+        limit,
+    }back{
+        success,
+        message OR errors,
+        data{
+            orderid, #订单号
+            flightnumber, #飞机编号
+            departureairport,
+            arrivalairport,
+            departuretime,
+            arrivaltime,
+            price,
+            isrefund, #该票是否已退款
+        }
+    }
+
+    退票：/RefundTicket
+    post{
+        email,
+        userid,
+        orderid,#订单号
+    }post{
+        success,
+        message OR message,
+    }
