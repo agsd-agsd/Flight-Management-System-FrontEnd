@@ -59,7 +59,7 @@ FluContentPage{
                 infoBar.showInfo("查询失败："+(res.message||"未知错误"))
             }
         }
-        onRegisterError: function(err){
+        onRequestFailed: function(err){
             infoBar.showError("网络错误（查票数）："+err)
         }
     }
