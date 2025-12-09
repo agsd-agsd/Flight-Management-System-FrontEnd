@@ -34,6 +34,7 @@ set(RESOURCES_FILES
     figures/avatar-agsd.jpg
     figures/bg.jpg
     figures/github.png
+    figures/avatar-goutou.jpg
 )
 
 qt_add_executable(${PROJECT_NAME}

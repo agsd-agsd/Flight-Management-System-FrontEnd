@@ -167,11 +167,12 @@ FluContentPage {
             }
 
             FluPivotItem {
-                title: "Jerrylingj"
+                title: "Goutou"
                 contentItem: MemberPage {
-                    name: "Jerrylingj"
+                    name: "Goutou"
                     role: "总经理 / General Manager"
                     avatarColor: "#0078d4"
+                    avatarSource: "qrc:/qt/QT_Project/figures/avatar-goutou.jpg"
                     desc: "统筹全局，运筹帷幄。\n主要负责：用户端核心航班检索与筛选逻辑、主页架构设计、收藏与预定状态管理；以及管理员端的航班调度与用户信息管理系统。"
                 }
             }
