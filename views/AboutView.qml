@@ -177,7 +177,7 @@ FluContentPage {
             }
 
             FluPivotItem {
-                title: "water2027"
+                title: "agsd"
                 contentItem: MemberPage {
                     name: "agsd"
                     role: "技术总监 / CTO"

@@ -8,6 +8,7 @@ FluContentPage {
     title: "我的订单"
 
     property var navView
+    property var stackView // 接收外层 StackView
     property var ordersModel // 接收全局订单模型
     property int pendingDeleteIndex: -1
 
@@ -34,12 +35,6 @@ FluContentPage {
         anchors.fill: parent
         anchors.margins: 20
         spacing: 20
-
-        FluText {
-            text: "我的订单列表"
-            font.pixelSize: 24
-            font.bold: true
-        }
 
         // 订单列表
         ListView {
@@ -119,22 +114,6 @@ FluContentPage {
                         }
                     }
                 }
-            }
-        }
-
-        FluRectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            radius: [8,8,8,8]
-            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
-            borderWidth: 1
-            visible: !ordersModel || ordersModel.count === 0
-            
-            FluText {
-                anchors.centerIn: parent
-                text: "暂无订单记录"
-                color: "#888888"
-                font.pixelSize: 16
             }
         }
     }

@@ -15,12 +15,6 @@ FluContentPage {
         anchors.margins: 20
         spacing: 20
 
-        FluText {
-            text: "我的收藏列表"
-            font.pixelSize: 24
-            font.bold: true
-        }
-
         // 占位内容，后续可以替换为实际的收藏列表
         ListView {
             Layout.fillWidth: true
@@ -75,22 +69,6 @@ FluContentPage {
                         }
                     }
                 }
-            }
-        }
-
-        FluRectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            radius: [8,8,8,8]
-            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
-            borderWidth: 1
-            visible: !favoritesModel || favoritesModel.count === 0
-            
-            FluText {
-                anchors.centerIn: parent
-                text: "暂无收藏的航班"
-                color: "#888888"
-                font.pixelSize: 16
             }
         }
         
