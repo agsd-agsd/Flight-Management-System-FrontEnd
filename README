@@ -206,3 +206,112 @@ UI颜色：
         passengerphone, #乘客电话
         passengeridnumber, #乘客身份证号
     }
+
+    # 用户信息管理接口
+
+    更新头像颜色：/UpdateProfileColor
+    post{
+        email,
+        id,
+        profilecolor, #头像颜色，8位十六进制字符串，如"FF0078D4"
+    }back{
+        success,
+        message OR errors,
+    }
+
+    更新用户名：/UpdateUsername
+    post{
+        email,
+        id,
+        username, #新用户名，最大长度10
+    }back{
+        success,
+        message OR errors,
+    }
+
+    # 货币系统接口
+
+    查询当前货币余额：/GetCurrency
+    post{
+        email,
+        id,
+    }back{
+        success,
+        message OR errors,
+        currency, #当前货币余额，字符串形式的数字
+    }
+
+    充值货币：/AddCurrency
+    post{
+        email,
+        id,
+        amount, #充值金额，正整数
+    }back{
+        success,
+        message OR errors,
+    }
+
+    提现货币：/SubtractCurrency
+    post{
+        email,
+        id,
+        amount, #提现金额，正整数
+    }back{
+        success,
+        message OR errors,
+    }
+
+    # 收藏票务接口
+
+    添加收藏：/AddStar
+    post{
+        email,
+        id,
+        ticketid, #要收藏的票ID
+    }back{
+        success,
+        message OR errors,
+    }
+
+    取消收藏：/RemoveStar
+    post{
+        email,
+        id,
+        ticketid, #要取消收藏的票ID
+    }back{
+        success,
+        message OR errors,
+    }
+
+    查询收藏总数：/GetStarCount
+    post{
+        email,
+        id,
+    }back{
+        success,
+        message OR errors,
+        count, #收藏总数，整数
+    }
+
+    查询收藏票列表：/GetStarTickets
+    post{
+        email,
+        id,
+        offset, #分页偏移量
+        limit, #分页限制数量
+    }back{
+        success,
+        message OR errors,
+        data{
+            starid, #收藏记录ID
+            flightnumber, #飞机编号
+            airline, #航空公司
+            departureairport, #出发机场
+            arrivalairport, #到达机场
+            departuretime, #出发时间
+            arrivaltime, #到达时间
+            price, #价格
+            availableseats, #可用座位数
+            createdat, #收藏时间
+        }
+    }
