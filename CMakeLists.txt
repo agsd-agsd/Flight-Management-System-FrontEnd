@@ -29,6 +29,8 @@ set(QML_FILES
 
 set(RESOURCES_FILES
     favicon.ico
+
+    figures/avatar-agsd.jpg
 )
 
 qt_add_executable(${PROJECT_NAME}

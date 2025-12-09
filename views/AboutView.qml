@@ -93,6 +93,7 @@ FluContentPage {
                 property string role
                 property string desc
                 property color avatarColor
+                property string avatarSource: "" // 新增头像路径属性
 
                 anchors.fill: parent
                 spacing: 20
@@ -103,14 +104,24 @@ FluContentPage {
                     width: 120
                     height: 120
                     radius: [60,60,60,60]
-                    color: avatarColor
+                    color: avatarSource ? "transparent" : avatarColor // 如果有图片则透明
                     
+                    // 默认文字头像
                     FluText {
                         anchors.centerIn: parent
                         text: name.charAt(0).toUpperCase()
                         font.pixelSize: 48
                         color: "white"
                         font.bold: true
+                        visible: !avatarSource // 如果有图片则隐藏
+                    }
+
+                    // 图片头像
+                    FluImage {
+                        anchors.fill: parent
+                        source: avatarSource
+                        visible: avatarSource !== ""
+                        fillMode: Image.PreserveAspectCrop
                     }
                 }
 
@@ -168,9 +179,10 @@ FluContentPage {
             FluPivotItem {
                 title: "water2027"
                 contentItem: MemberPage {
-                    name: "water2027"
+                    name: "agsd"
                     role: "技术总监 / CTO"
                     avatarColor: "#107c10"
+                    avatarSource: "qrc:/qt/QT_Project/figures/avatar-agsd.jpg"
                     desc: "技术攻坚，架构基石。\n主要负责：底层网络请求库封装、AI智能客服系统集成、发现页实时旅游笔记流、以及高并发下的航班信息实时同步机制。"
                 }
             }
