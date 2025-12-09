@@ -11,19 +11,10 @@ FluScrollablePage {
     ListModel {
         id: model_header
         ListElement {
-            icon: "qrc:/qt/QT_Project/figures/avatar-agsd.jpg" // 替换为现有资源
-            title: qsTr("Flight System")
+            icon: "qrc:/qt/QT_Project/figures/github.png"
+            title: qsTr("Flight Management System")
             desc: qsTr("A modern flight management system built with Qt and FluentUI.")
-            url: "https://github.com/zhuzichu520/FluentUI"
-            clicked: function(model){
-                Qt.openUrlExternally(model.url)
-            }
-        }
-        ListElement {
-            icon: "qrc:/qt/QT_Project/figures/avatar-agsd.jpg"
-            title: qsTr("About Us")
-            desc: qsTr("Learn more about our development team and mission.")
-            url: "https://github.com/zhuzichu520/FluentUI"
+            url: "https://github.com/agsd-agsd/Flight-Management-System-FrontEnd"
             clicked: function(model){
                 Qt.openUrlExternally(model.url)
             }
@@ -34,16 +25,13 @@ FluScrollablePage {
         Layout.fillWidth: true
         Layout.preferredHeight: 320
         
-        // 背景图占位
-        Rectangle {
+        // 背景图
+        Image {
             id: bg
             anchors.fill: parent
-            color: FluTheme.primaryColor
-            // 渐变效果
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: FluTheme.primaryColor }
-                GradientStop { position: 1.0; color: FluTheme.dark ? "#000000" : "#ffffff" }
-            }
+            fillMode: Image.PreserveAspectCrop
+            source: "qrc:/qt/QT_Project/figures/bg.jpg"
+            verticalAlignment: Qt.AlignTop
         }
 
         Rectangle {
@@ -63,7 +51,6 @@ FluScrollablePage {
                 topMargin: 20
                 leftMargin: 20
             }
-            color: "white"
         }
 
         Component {
@@ -106,21 +93,12 @@ FluScrollablePage {
                     }
                     
                     ColumnLayout {
-                        // 图标占位
-                        Rectangle {
+                        Image {
                             Layout.topMargin: 20
                             Layout.leftMargin: 20
                             Layout.preferredWidth: 50
                             Layout.preferredHeight: 50
-                            radius: 25
-                            color: FluTheme.primaryColor
-                            
-                            FluText {
-                                anchors.centerIn: parent
-                                text: model.title.charAt(0)
-                                color: "white"
-                                font.pixelSize: 24
-                            }
+                            source: model.icon
                         }
                         
                         FluText {
@@ -185,9 +163,6 @@ FluScrollablePage {
             delegate: com_grallery
         }
     }
-
-    // 移除 ItemsOriginal 相关代码，因为该对象未定义
-    // 仅保留静态展示部分
     
     FluText {
         text: "System Features"

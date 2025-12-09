@@ -32,6 +32,8 @@ set(RESOURCES_FILES
     favicon.ico
 
     figures/avatar-agsd.jpg
+    figures/bg.jpg
+    figures/github.png
 )
 
 qt_add_executable(${PROJECT_NAME}
