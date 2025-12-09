@@ -9,6 +9,26 @@ FluContentPage {
 
     property var navView
     property var ordersModel // 接收全局订单模型
+    property int pendingDeleteIndex: -1
+
+    FluContentDialog {
+        id: refundDialog
+        title: "确认退票"
+        message: "您确定要退掉这张机票吗？此操作不可撤销。"
+        negativeText: "取消"
+        buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
+        onNegativeClicked: {
+            pendingDeleteIndex = -1
+        }
+        positiveText: "确定退票"
+        onPositiveClicked: {
+            if (pendingDeleteIndex !== -1) {
+                ordersModel.remove(pendingDeleteIndex)
+                showSuccess("退票成功")
+                pendingDeleteIndex = -1
+            }
+        }
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -89,12 +109,12 @@ FluContentPage {
                             color: "#ff8819"
                             Layout.alignment: Qt.AlignRight
                         }
-                        FluButton {
+                        FluFilledButton {
                             text: "退票"
                             Layout.alignment: Qt.AlignRight
                             onClicked: {
-                                // 简单的退票逻辑：直接从模型移除
-                                ordersModel.remove(index)
+                                pendingDeleteIndex = index
+                                refundDialog.open()
                             }
                         }
                     }
