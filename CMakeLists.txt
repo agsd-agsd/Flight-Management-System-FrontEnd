@@ -25,6 +25,7 @@ set(QML_FILES
     views/Login.qml
     views/Register.qml
     views/DashBoard.qml
+    views/HomeView.qml
 )
 
 set(RESOURCES_FILES
