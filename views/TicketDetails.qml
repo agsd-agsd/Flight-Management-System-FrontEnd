@@ -12,6 +12,9 @@ FluPage {
     property string userEmail: ""
     property string userId: ""
     property int ticketId: 0
+    property bool isFavorite: false
+    property var favoritesModel // 接收全局收藏模型
+    property var ordersModel // 接收全局订单模型
 
     // 详情数据（初始为空，等待接口返回）
     property string flightNo: "--"
@@ -23,6 +26,7 @@ FluPage {
     property string seat: "待选"
     property string passengerName: "待定"
     property real price: 0.0
+
 
     // 网络请求组件
     NetworkHandler {
@@ -57,14 +61,46 @@ FluPage {
 
     Component.onCompleted: {
         if (ticketId !== 0) {
+            // 检查是否在收藏中
+            if (favoritesModel) {
+                for(var i=0; i<favoritesModel.count; i++) {
+                    if(favoritesModel.get(i).ticketId === ticketId) {
+                        isFavorite = true
+                        break
+                    }
+                }
+            }
+
             console.log("正在请求票务详情, ID:", ticketId)
+            
+            // 模拟数据，绕过后端
+            
+            if (ticketId === 90789) {
+                flightNo = "MF4867"
+                depart = "广州"
+                arrive = "北京"
+                departTime = "00:15"
+                arriveTime = "02:20"
+                price = 499.00
+                return
+            } else if (ticketId === 90790) {
+                flightNo = "CA1234"
+                depart = "上海"
+                arrive = "深圳"
+                departTime = "10:00"
+                arriveTime = "12:30"
+                price = 680.00
+                return
+            }
+            
+
             var params = {
                 "email": userEmail,
                 "id": parseInt(userId),
                 "ticketid": ticketId
             }
             // 假设接口路径为 /GetTicketDetails，请根据实际情况修改
-            detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
+            // detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
         }
     }
 
@@ -87,10 +123,52 @@ FluPage {
             spacing: 12
             FluText {
                 text: "机票详情"
-                color: "#ffffff"
                 font.pixelSize: 18 * scale
                 font.bold: true
                 Layout.fillWidth: true
+            }
+            FluToggleButton{
+                text: isFavorite ? "取消收藏" : "收藏"
+                checked: isFavorite
+                onClicked: {
+                    isFavorite = !isFavorite
+                    if (favoritesModel) {
+                        if (isFavorite) {
+                            // 添加到收藏
+                            // 检查是否已存在
+                            var exists = false
+                            for(var i=0; i<favoritesModel.count; i++) {
+                                if(favoritesModel.get(i).ticketId === ticketId) {
+                                    exists = true
+                                    break
+                                }
+                            }
+                            if(!exists) {
+                                favoritesModel.append({
+                                    "ticketId": ticketId,
+                                    "flightNo": flightNo,
+                                    "depart": depart,
+                                    "arrive": arrive,
+                                    "departTime": departTime,
+                                    "arriveTime": arriveTime,
+                                    "price": price
+                                })
+                                console.log("已添加到收藏:", ticketId)
+                            }
+                        } else {
+                            // 从收藏移除
+                            for(var i=0; i<favoritesModel.count; i++) {
+                                if(favoritesModel.get(i).ticketId === ticketId) {
+                                    favoritesModel.remove(i)
+                                    console.log("已从收藏移除:", ticketId)
+                                    break
+                                }
+                            }
+                        }
+                    } else {
+                        console.log("Error: favoritesModel is undefined")
+                    }
+                }
             }
             FluButton {
                 text: "返回航班列表"
@@ -106,6 +184,29 @@ FluPage {
                         return
                     }
                     console.log("Return failed: No valid pop method found")
+                }
+            }
+            FluFilledButton {
+                text: "购买机票"
+                onClicked: {
+                    var props = {
+                        "flightNo": flightNo,
+                        "depart": depart,
+                        "arrive": arrive,
+                        "departTime": departTime,
+                        "arriveTime": arriveTime,
+                        "price": price,
+                        "ticketId": ticketId,
+                        "userEmail": userEmail,
+                        "userId": userId,
+                        "ordersModel": ordersModel // 传递给购买页
+                    }
+                    
+                    if (page.StackView.view) {
+                        page.StackView.view.push("qrc:/qt/QT_Project/views/BuyTicketPage.qml", props)
+                    } else if (navView && typeof navView.push === 'function') {
+                        navView.push("qrc:/qt/QT_Project/views/BuyTicketPage.qml", props)
+                    }
                 }
             }
         }
@@ -124,14 +225,13 @@ FluPage {
             width: fitWidth(800, 1000)
             height: 64 * scale
             radius: [10,10,10,10]
-            color: "#262626"
+            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
             borderColor: "#404040"
             borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
             FluText {
                 anchors.centerIn: parent
                 text: "票号: " + ticketId
-                color: "white"
                 font.pixelSize: 22 * scale
                 font.bold: true
             }
@@ -142,7 +242,7 @@ FluPage {
             width: fitWidth(900, 1100)
             height: 96 * scale
             radius: [12,12,12,12]
-            color: "#303030"
+            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
             borderColor: "#454545"
             borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
@@ -155,20 +255,19 @@ FluPage {
                 ColumnLayout {
                     spacing: 6 * scale
                     Layout.fillWidth: true
-                    FluText { text: depart; color: "#ffffff"; font.pixelSize: 18 * scale; font.bold: true }
-                    FluText { text: departTime; color: "#cccccc"; font.pixelSize: 14 * scale }
+                    FluText { text: depart; font.pixelSize: 18 * scale; font.bold: true }
+                    FluText { text: departTime; font.pixelSize: 14 * scale }
                 }
 
                 FluRectangle {
                     width: 60 * scale; height: 40 * scale
                     radius: [20 * scale, 20 * scale, 20 * scale, 20 * scale]
-                    color: "#505050"
+                    color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
                     Layout.preferredWidth: width
                     Layout.preferredHeight: height
                     FluText {
                         anchors.centerIn: parent
                         text: "→"
-                        color: "white"
                         font.pixelSize: 22 * scale
                     }
                 }
@@ -176,8 +275,8 @@ FluPage {
                 ColumnLayout {
                     spacing: 6 * scale
                     Layout.fillWidth: true
-                    FluText { text: arrive; color: "#ffffff"; font.pixelSize: 18 * scale; font.bold: true }
-                    FluText { text: arriveTime; color: "#cccccc"; font.pixelSize: 14 * scale }
+                    FluText { text: arrive; font.pixelSize: 18 * scale; font.bold: true }
+                    FluText { text: arriveTime; font.pixelSize: 14 * scale }
                 }
             }
         }
@@ -194,7 +293,7 @@ FluPage {
                 ]
                 delegate: FluRectangle {
                     radius: [8,8,8,8]
-                    color: "#404040"
+                    color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
                     borderColor: "#555555"
                     borderWidth: 1
                     height: 34 * scale
@@ -203,7 +302,6 @@ FluPage {
                         id: label
                         anchors.centerIn: parent
                         text: modelData
-                        color: "#dddddd"
                         font.pixelSize: 13 * scale
                     }
                 }
@@ -215,7 +313,7 @@ FluPage {
             width: fitWidth(900, 1100)
             height: detailsCol.height + 40 * scale
             radius: [12,12,12,12]
-            color: "#262626"
+            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
             borderColor: "#404040"
             borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
@@ -225,12 +323,12 @@ FluPage {
                 width: parent.width - 40 * scale
                 anchors.centerIn: parent
                 spacing: 10 * scale
-                FluText { text: "乘客: " + passengerName; color: "white"; font.pixelSize: 15 * scale }
-                FluText { text: "出发: " + depart; color: "white"; font.pixelSize: 14 * scale }
-                FluText { text: "到达: " + arrive; color: "white"; font.pixelSize: 14 * scale }
-                FluText { text: "起飞时间: " + departTime; color: "white"; font.pixelSize: 14 * scale }
-                FluText { text: "到达时间: " + arriveTime; color: "white"; font.pixelSize: 14 * scale }
-                FluText { text: "价格: ￥" + price.toFixed(2); color: "white"; font.pixelSize: 14 * scale }
+                FluText { text: "乘客: " + passengerName; font.pixelSize: 15 * scale }
+                FluText { text: "出发: " + depart; font.pixelSize: 14 * scale }
+                FluText { text: "到达: " + arrive; font.pixelSize: 14 * scale }
+                FluText { text: "起飞时间: " + departTime; font.pixelSize: 14 * scale }
+                FluText { text: "到达时间: " + arriveTime; font.pixelSize: 14 * scale }
+                FluText { text: "价格: ￥" + price.toFixed(2); font.pixelSize: 14 * scale }
             }
         }
 
@@ -239,7 +337,7 @@ FluPage {
             width: fitWidth(900, 1100)
             height: 180 * scale
             radius: [12,12,12,12]
-            color: "#202020"
+            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
             borderColor: "#555555"
             borderWidth: 1
             anchors.horizontalCenter: parent.horizontalCenter
@@ -261,6 +359,13 @@ FluPage {
                         radius: [8,8,8,8]
                         borderColor: "#bbbbbb"
                         borderWidth: 1
+                        FluText {
+                            anchors.centerIn: parent
+                            text: "QR Code"
+                            color: "#cccccc"
+                            font.pixelSize: 12
+                            z: -1
+                        }
                     }
                     FluQRCode {
                         anchors.centerIn: parent
@@ -274,11 +379,11 @@ FluPage {
                 ColumnLayout {
                     spacing: 8 * scale
                     Layout.fillWidth: true
-                    FluText { text: "电子登机牌"; color: "#ffffff"; font.pixelSize: 16 * scale; font.bold: true }
-                    FluText { text: "航班: " + flightNo; color: "#cccccc"; font.pixelSize: 13 * scale }
-                    FluText { text: "乘客: " + passengerName; color: "#cccccc"; font.pixelSize: 13 * scale }
-                    FluText { text: "座位: " + seat + "   舱位: " + cabin; color: "#cccccc"; font.pixelSize: 13 * scale }
-                    FluText { text: "请在登机口出示此电子登机牌"; color: "#aaaaaa"; font.pixelSize: 12 * scale }
+                    FluText { text: "电子登机牌"; font.pixelSize: 16 * scale; font.bold: true }
+                    FluText { text: "航班: " + flightNo; font.pixelSize: 13 * scale }
+                    FluText { text: "乘客: " + passengerName; font.pixelSize: 13 * scale }
+                    FluText { text: "座位: " + seat + "   舱位: " + cabin; font.pixelSize: 13 * scale }
+                    FluText { text: "请在登机口出示此电子登机牌"; font.pixelSize: 12 * scale }
                 }
             }
         }

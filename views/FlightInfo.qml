@@ -8,6 +8,8 @@ FluContentPage{
     id:rootPage
     title:"航班信息"
     property var navView
+    property var favoritesModel // 接收全局收藏模型
+    property var ordersModel // 接收全局订单模型
     property var cityList:["北京", "上海", "广州", "深圳", "成都", "香港","武汉"]
     property var flightData: []
     property string selectedDate:""
@@ -82,6 +84,33 @@ FluContentPage{
     }
 
     function startSearch(){
+        // 模拟数据，绕过后端
+        
+        flightData = [
+            {
+                "ticketid": 90789,
+                "flightnumber": "MF4867",
+                "departureairport": "广州",
+                "arrivalairport": "北京",
+                "departuretime": "2025-12-08T00:15:00",
+                "arrivaltime": "2025-12-08T02:20:00",
+                "price": 499.00
+            },
+            {
+                "ticketid": 90790,
+                "flightnumber": "CA1234",
+                "departureairport": "上海",
+                "arrivalairport": "深圳",
+                "departuretime": "2025-12-08T10:00:00",
+                "arrivaltime": "2025-12-08T12:30:00",
+                "price": 680.00
+            }
+        ]
+        infoBar.showSuccess("已加载测试数据")
+        return
+        
+
+        /* 原有逻辑恢复
         var dep=comboDep.currentIndex===-1?"":comboDep.currentText
         var arr=comboArr.currentIndex===-1?"":comboArr.currentText
         if(dep===""||arr===""){
@@ -103,6 +132,7 @@ FluContentPage{
         }
         console.log("【检查参数】正在发送:", JSON.stringify(params))
         numHandler.request("/GetTicketsNum", NetworkHandler.POST, params)
+        */
     }
 
     function fetchFlightList(){
@@ -266,7 +296,9 @@ FluContentPage{
                                         "navView": navView,
                                         "userEmail": userEmail,
                                         "userId": userId,
-                                        "ticketId": tId
+                                        "ticketId": tId,
+                                        "favoritesModel": favoritesModel, // 传递给详情页
+                                        "ordersModel": ordersModel // 传递给详情页
                                     })
                                 } else {
                                     console.log("Error: navView is undefined")

@@ -5,6 +5,16 @@ import FluentUI 1.0
 
     Item {
     property StackView stackView  // 用于返回登录
+    
+    // 全局收藏列表模型
+    ListModel {
+        id: favoritesModel
+    }
+
+    // 全局订单列表模型
+    ListModel {
+        id: ordersModel
+    }
 
     Component.onCompleted: {
         // 进入仪表盘：扩大主窗口大小并居中
@@ -38,7 +48,13 @@ import FluentUI 1.0
         // 简化跳转函数
         function navigateTo(url) {
             // 传递 navView 和外层 stackView（用于以后需要返回到登录）
-            userNavView.push(url, { navView: userNavView, stackView: stackView })
+            // 同时传递全局收藏模型和订单模型
+            userNavView.push(url, { 
+                navView: userNavView, 
+                stackView: stackView,
+                favoritesModel: favoritesModel,
+                ordersModel: ordersModel
+            })
         }
 
         // 主菜单分组（核心功能）
@@ -90,7 +106,7 @@ import FluentUI 1.0
                 id: item_flight_favorite
                 title: qsTr("我的收藏")
                 icon: FluentIcons.FavoriteStar
-                url: "qrc:/qt/QT_Project/views/FlightFavoriteView.qml"
+                url: "qrc:/qt/QT_Project/views/MyFavoritesPage.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
 
