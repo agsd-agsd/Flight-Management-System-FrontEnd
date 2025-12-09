@@ -48,6 +48,7 @@ qt_add_qml_module(${PROJECT_NAME}
     QML_FILES views/BuyTicketPage.qml
     QML_FILES views/MyFavoritesPage.qml
     QML_FILES views/OrdersView.qml
+    QML_FILES views/AboutView.qml
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
