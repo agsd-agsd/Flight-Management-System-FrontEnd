@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
 import NetworkHandler 1.0
+import QT_Project
 
 FluContentPage{
     id:rootPage
@@ -13,9 +14,6 @@ FluContentPage{
     property var cityList:["北京", "上海", "广州", "深圳", "成都", "香港","武汉"]
     property var flightData: []
     property string selectedDate:""
-
-    property string userEmail: "666700"
-    property string userId: "90001"
 
     property int currentOffset: 0
     property int pageSize: 20
@@ -85,7 +83,7 @@ FluContentPage{
 
     function startSearch(){
         // 模拟数据，绕过后端
-        
+        /*
         flightData = [
             {
                 "ticketid": 90789,
@@ -108,9 +106,9 @@ FluContentPage{
         ]
         infoBar.showSuccess("已加载测试数据")
         return
-        
+        */
 
-        /* 原有逻辑恢复
+
         var dep=comboDep.currentIndex===-1?"":comboDep.currentText
         var arr=comboArr.currentIndex===-1?"":comboArr.currentText
         if(dep===""||arr===""){
@@ -124,23 +122,23 @@ FluContentPage{
         flightData=[]
         currentOffset=0
         var params={
-            "email":userEmail,
-            "id":parseInt(userId),
+            "email":GlobalSession.email,
+            "id":parseInt(GlobalSession.userId),
             "departureairport": dep,
             "arrivalairport": arr,
             "time": selectedDate
         }
         console.log("【检查参数】正在发送:", JSON.stringify(params))
         numHandler.request("/GetTicketsNum", NetworkHandler.POST, params)
-        */
+
     }
 
     function fetchFlightList(){
         var dep = comboDep.currentText
         var arr = comboArr.currentText
         var params = {
-            "email": userEmail,
-            "id": parseInt(userId),
+            "email": GlobalSession.email,
+            "id": parseInt(GlobalSession.userId),
             "sort": "starttime",
             "time": selectedDate,
             "departureairport": dep,
@@ -294,11 +292,11 @@ FluContentPage{
                                     
                                     navView.push("qrc:/qt/QT_Project/views/TicketDetails.qml",{
                                         "navView": navView,
-                                        "userEmail": userEmail,
-                                        "userId": userId,
+                                        "userEmail": GlobalSession.email,
+                                        "userId": GlobalSession.userId,
                                         "ticketId": tId,
                                         "favoritesModel": favoritesModel, // 传递给详情页
-                                        "ordersModel": ordersModel // 传递给详情页
+                                        "ordersModel": ordersModel, // 传递给详情页
                                     })
                                 } else {
                                     console.log("Error: navView is undefined")

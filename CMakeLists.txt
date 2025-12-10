@@ -56,6 +56,8 @@ qt_add_qml_module(${PROJECT_NAME}
     QML_FILES views/OrdersView.qml
     QML_FILES views/AboutView.qml
     QML_FILES views/ProfileView.qml
+    SOURCES UserSession.cpp
+    SOURCES UserSession.h
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

@@ -34,7 +34,7 @@ signals:
     void requestFailed(const QString &errorMessage);   // 返回错误信息
 
 
-    void loginSuccess(const QString &message);
+    void loginSuccess(const QVariantMap &userInfo, const QString &msg);
     void loginError(const QString &error);
     void registerSuccess(const QString &message);
     void registerError(const QString &error);

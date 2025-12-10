@@ -11,6 +11,7 @@
 #include <QSslError>
 #include <QJsonParseError>
 #include <QSslSocket>
+#include "UserSession.h"
 
 NetworkHandler::NetworkHandler(QObject *parent)
     : QObject(parent),
@@ -169,9 +170,44 @@ void NetworkHandler::login(const QString &email, const QString &password)
         bool success = obj["success"].toBool();
         if (success) {
             QString msg = obj["message"].toString();
+
+            int uid = 0;
+            if (obj["userid"].isString()) {
+                uid = obj["userid"].toString().toInt();
+            } else {
+                uid = obj["userid"].toInt();
+            }
+
+            QString uName = obj["username"].toString();
+            QString uEmail = obj["email"].toString();
+
+            // 2. 写入 UserSession 单例 (这是最关键的一步！)
+            // 确保你的 UserSession 类有 instance() 静态方法和对应的 setter
+            UserSession::instance()->setUserId(uid);
+            UserSession::instance()->setUsername(uName);
+            UserSession::instance()->setEmail(uEmail);
+
+            qDebug() << "[NetworkHandler] UserSession updated -> ID:" << uid;
+
+
+            QVariantMap userInfo;
+
+            // 使用 toVariant() 以兼容 userid 是数字或字符串的情况
+            if (obj.contains("userid")) {
+                userInfo["userid"] = obj["userid"].toVariant();
+            }
+
+            if (obj.contains("username")) {
+                userInfo["username"] = obj["username"].toString();
+            }
+
+            if (obj.contains("email")) {
+                userInfo["email"] = obj["email"].toString();
+            }
+
             qDebug() << "[NetworkHandler] login success:" << msg;
             // 可选：存储 userid, email, username 到成员变量或信号中传递
-            emit loginSuccess(msg);
+            emit loginSuccess(userInfo,msg);
         } else {
             QString err;
             if (obj.contains("errors")) {

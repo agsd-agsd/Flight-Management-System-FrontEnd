@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QCoreApplication>
 #include <QQmlEngine>
+#include "UserSession.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +18,10 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<NetworkHandler>("NetworkHandler", 1, 0, "NetworkHandler");
     qmlRegisterType<CircularReveal>("AppComponents", 1, 0, "CircularReveal");
+
+
+    UserSession *session = UserSession::instance();
+    engine.rootContext()->setContextProperty("GlobalSession", session);
 
     QObject::connect(
         &engine,
