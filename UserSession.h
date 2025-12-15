@@ -20,7 +20,7 @@ public:
         , m_email("")
         , m_userId(0)
         , m_isLoggedIn(false)
-        , m_balance(0.0)
+        , m_balance(2000.0)
     {}
     static UserSession *instance();
 

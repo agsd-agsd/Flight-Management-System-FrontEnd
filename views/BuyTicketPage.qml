@@ -23,8 +23,15 @@ FluContentPage {
         id: networkHandler
         onRequestSuccess: function(res, endpoint){
             if(endpoint === "/BuyTicket"){
+                // 买票成功后，手动扣除余额
+                networkHandler.request("/SubtractCurrency", NetworkHandler.POST, {
+                    email: GlobalSession.email,
+                    id: GlobalSession.userId,
+                    amount: parseInt(price)
+                })
+            } else if (endpoint === "/SubtractCurrency") {
                 showSuccess("购票成功！")
-                // 刷新余额
+                // 扣款成功后，刷新余额
                 networkHandler.request("/GetCurrency", NetworkHandler.POST, {
                     email: GlobalSession.email,
                     id: GlobalSession.userId
@@ -38,7 +45,7 @@ FluContentPage {
             }
         }
         onRequestFailed: function(err){
-            showError("购票失败: " + err)
+            showError("操作失败: " + err)
         }
     }
 
@@ -215,6 +222,11 @@ FluContentPage {
                         
                         if (passengerNameInput.text === "" || idCardInput.text === "" || phoneInput.text === "") {
                             showError("请填写完整的乘客信息")
+                            return
+                        }
+
+                        if (GlobalSession.balance < price) {
+                            showError("余额不足，请充值")
                             return
                         }
 

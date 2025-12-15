@@ -85,33 +85,6 @@ FluContentPage{
     }
 
     function startSearch(){
-        // 模拟数据，绕过后端
-        /*
-        flightData = [
-            {
-                "ticketid": 90789,
-                "flightnumber": "MF4867",
-                "departureairport": "广州",
-                "arrivalairport": "北京",
-                "departuretime": "2025-12-08T00:15:00",
-                "arrivaltime": "2025-12-08T02:20:00",
-                "price": 499.00
-            },
-            {
-                "ticketid": 90790,
-                "flightnumber": "CA1234",
-                "departureairport": "上海",
-                "arrivalairport": "深圳",
-                "departuretime": "2025-12-08T10:00:00",
-                "arrivaltime": "2025-12-08T12:30:00",
-                "price": 680.00
-            }
-        ]
-        infoBar.showSuccess("已加载测试数据")
-        return
-        */
-
-
         var dep=comboDep.currentIndex===-1?"":comboDep.currentText
         var arr=comboArr.currentIndex===-1?"":comboArr.currentText
         if(dep===""||arr===""){
