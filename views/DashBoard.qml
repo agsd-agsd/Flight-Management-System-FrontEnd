@@ -49,6 +49,11 @@ import FluentUI 1.0
         displayMode: FluNavigationViewType.Auto
         visible: true
 
+        Component.onCompleted: {
+            // 默认跳转到首页
+            navigateTo("qrc:/qt/QT_Project/views/HomeView.qml")
+        }
+
         // 简化跳转函数
         function navigateTo(url) {
             // 传递 navView 和外层 stackView（用于以后需要返回到登录）

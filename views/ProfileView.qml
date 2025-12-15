@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.15
 import FluentUI 1.0
 import NetworkHandler 1.0
 
-FluContentPage {
+FluScrollablePage {
     id: root
     title: "个人中心"
 
@@ -73,21 +73,33 @@ FluContentPage {
     }
 
 
-    ScrollView {
-        anchors.fill: parent
-        contentWidth: parent.width
+    ColumnLayout {
+        Layout.alignment: Qt.AlignHCenter
+        width: Math.min(parent.width, 600)
+        Layout.topMargin: 20
+        spacing: 30
 
+        // 钱包按钮区域
+        Item {
+            Layout.fillWidth: true
+            height: 40
+            FluFilledButton {
+                text: "我的钱包"
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                onClicked: {
+                    navView.push("qrc:/qt/QT_Project/views/RechargeView.qml", {
+                        navView: navView,
+                        userEmail: root.userEmail
+                    })
+                }
+            }
+        }
+
+        // 头像区域
         ColumnLayout {
-            width: Math.min(parent.width, 600)
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 40
-            spacing: 30
-
-            // 头像区域
-            ColumnLayout {
-                Layout.alignment: Qt.AlignHCenter
-                spacing: 15
+            Layout.alignment: Qt.AlignHCenter
+            spacing: 15
 
                 FluRectangle {
                     Layout.alignment: Qt.AlignHCenter
@@ -254,19 +266,3 @@ FluContentPage {
             }
         }
     }
-
-    FluFilledButton {
-        text: "我的钱包"
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.rightMargin: 20
-        anchors.topMargin: 10
-        z: 999
-        onClicked: {
-            navView.push("qrc:/qt/QT_Project/views/RechargeView.qml", {
-                navView: navView,
-                userEmail: root.userEmail
-            })
-        }
-    }
-}
