@@ -73,34 +73,12 @@ FluPage {
 
             console.log("正在请求票务详情, ID:", ticketId)
             
-            // 模拟数据，绕过后端
-            
-            if (ticketId === 90789) {
-                flightNo = "MF4867"
-                depart = "广州"
-                arrive = "北京"
-                departTime = "00:15"
-                arriveTime = "02:20"
-                price = 499.00
-                return
-            } else if (ticketId === 90790) {
-                flightNo = "CA1234"
-                depart = "上海"
-                arrive = "深圳"
-                departTime = "10:00"
-                arriveTime = "12:30"
-                price = 680.00
-                return
-            }
-            
-
             var params = {
                 "email": userEmail,
                 "id": parseInt(userId),
                 "ticketid": ticketId
             }
-            // 假设接口路径为 /GetTicketDetails，请根据实际情况修改
-            // detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
+            detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
         }
     }
 

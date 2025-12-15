@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
+import NetworkHandler 1.0
 
 FluContentPage {
     id: page
@@ -17,6 +18,29 @@ FluContentPage {
     property string userEmail: ""
     property string userId: ""
     property var ordersModel // 接收全局订单模型
+
+    NetworkHandler {
+        id: networkHandler
+        onRequestSuccess: function(res, endpoint){
+            if(endpoint === "/BuyTicket"){
+                showSuccess("购票成功！")
+                // 刷新余额
+                networkHandler.request("/GetCurrency", NetworkHandler.POST, {
+                    email: userEmail,
+                    id: GlobalSession.userId
+                })
+                // 延迟返回
+                timer.start()
+            } else if (endpoint === "/GetCurrency") {
+                if(res.currency !== undefined) {
+                    GlobalSession.balance = parseFloat(res.currency)
+                }
+            }
+        }
+        onRequestFailed: function(err){
+            showError("购票失败: " + err)
+        }
+    }
 
     // 响应式尺寸因子
     property real w: width
@@ -194,29 +218,15 @@ FluContentPage {
                             return
                         }
 
-                        if (ordersModel) {
-                            ordersModel.append({
-                                "flightNo": flightNo,
-                                "depart": depart,
-                                "arrive": arrive,
-                                "departTime": departTime,
-                                "arriveTime": arriveTime,
-                                "price": price,
-                                "passengerName": passengerNameInput.text,
-                                "idCard": idCardInput.text,
-                                "phone": phoneInput.text,
-                                "cabin": "经济舱",
-                                "seatRow": "随机",
-                                "seatCol": "",
-                                "date": new Date().toLocaleDateString()
-                            })
-                            showSuccess("购票成功！")
-                            
-                            // 延迟返回，让用户看到成功提示
-                            timer.start()
-                        } else {
-                            console.log("Error: ordersModel is undefined")
-                        }
+                        // 调用后端接口
+                        networkHandler.request("/BuyTicket", NetworkHandler.POST, {
+                            email: userEmail,
+                            id: parseInt(userId),
+                            ticketid: ticketId,
+                            passengername: passengerNameInput.text,
+                            passengerphone: phoneInput.text,
+                            passengeridnumber: idCardInput.text
+                        })
                     }
                 }
             }

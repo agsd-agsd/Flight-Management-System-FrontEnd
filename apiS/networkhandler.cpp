@@ -11,6 +11,7 @@
 #include <QSslError>
 #include <QJsonParseError>
 #include <QSslSocket>
+#include <QTimer>
 #include "UserSession.h"
 
 NetworkHandler::NetworkHandler(QObject *parent)
@@ -62,7 +63,7 @@ void NetworkHandler::request(const QString &apiPath, Method method, const QVaria
     }
 
     // 4. 处理响应
-    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply, apiPath]() {
         // 先获取状态码
         int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         QString errorString = reply->errorString();
@@ -98,12 +99,13 @@ void NetworkHandler::request(const QString &apiPath, Method method, const QVaria
 
         // 成功！将 JSON 转为 QVariant 发回给 QML
         if (doc.isObject()) {
-            emit requestSuccess(doc.object().toVariantMap());
+            emit requestSuccess(doc.object().toVariantMap(), apiPath);
         } else if (doc.isArray()) {
-            emit requestSuccess(doc.array().toVariantList());
+            emit requestSuccess(doc.array().toVariantList(), apiPath);
         } else {
-            emit requestSuccess(QVariant());
+            emit requestSuccess(QVariant(), apiPath);
         }
+        reply->deleteLater();
     });
 
     // 简单 SSL 处理

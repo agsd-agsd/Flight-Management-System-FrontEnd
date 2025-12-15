@@ -30,7 +30,7 @@ public:
 
 signals:
     // [新增] 通用信号
-    void requestSuccess(const QVariant &responseData); // 返回 JSON 数据给 QML
+    void requestSuccess(const QVariant &responseData, const QString &endpoint = ""); // 返回 JSON 数据给 QML
     void requestFailed(const QString &errorMessage);   // 返回错误信息
 
 

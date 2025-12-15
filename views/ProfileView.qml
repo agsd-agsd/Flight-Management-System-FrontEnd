@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
+import NetworkHandler 1.0
 
 FluContentPage {
     id: root
@@ -9,12 +10,37 @@ FluContentPage {
 
     property var stackView // 接收外层 StackView 用于退出登录
     property var navView
+    property var favoritesModel
+    property var ordersModel
+    property string userEmail: "" 
+    property string userName: "" 
 
     // 模拟用户信息
     property string userId: "90001"
-    property string userName: "Admin"
+    // property string userName: "Admin" // Removed to avoid conflict
     property color avatarColor: "#0078d4"
     property var colorList: ["#0078d4", "#107c10", "#d13438", "#5c2d91", "#ff8c00", "#00b7c3"]
+
+    NetworkHandler {
+        id: networkHandler
+        onRequestSuccess: function(res, endpoint){
+            if(endpoint === "/GetCurrency"){
+                if(res.currency !== undefined) {
+                    GlobalSession.balance = parseFloat(res.currency)
+                }
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        // 每次进入个人中心刷新余额
+        networkHandler.request("/GetCurrency", NetworkHandler.POST, {
+            email: GlobalSession.email,
+            id: GlobalSession.userId
+        })
+    }
+
+
 
     FluContentDialog {
         id: logoutDialog
@@ -185,6 +211,8 @@ FluContentPage {
                 }
             }
 
+
+
             // 账号操作区域
             FluRectangle {
                 Layout.fillWidth: true
@@ -228,6 +256,21 @@ FluContentPage {
                     }
                 }
             }
+        }
+    }
+
+    FluFilledButton {
+        text: "我的钱包"
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.rightMargin: 20
+        anchors.topMargin: 10
+        z: 999
+        onClicked: {
+            navView.push("qrc:/qt/QT_Project/views/RechargeView.qml", {
+                navView: navView,
+                userEmail: root.userEmail
+            })
         }
     }
 }

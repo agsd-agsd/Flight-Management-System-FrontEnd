@@ -72,18 +72,13 @@ Item {
             function onLoginSuccess(userInfo,msg) {
                 console.log("登录成功", msg)
                 console.log("用户数据:", JSON.stringify(userInfo))
-                // 1. 将数据存入全局单例
-                // 注意：确保 UserSession.qml 里有 userid 属性，如果没有可以不存
-                GlobalSession.username = userInfo.username
-                GlobalSession.email = userInfo.email
-                GlobalSession.userid = userInfo.userid
-                GlobalSession.isLoggedIn = true
-
-                console.log("【验证】UserSession.email:", GlobalSession.email)
-                console.log("【验证】UserSession.userId:", GlobalSession.userId)
-                console.log("----------------------------------------------------")
-
-                stackView.push("DashBoard.qml", {stackView: stackView})
+                
+                // 跳转到 DashBoard 并传递用户信息
+                stackView.push("DashBoard.qml", {
+                    stackView: stackView,
+                    globalUserName: userInfo.username,
+                    globalUserEmail: userInfo.email
+                })
             }
             function onLoginError(errmsg) {
                 errorLabel.text = errmsg

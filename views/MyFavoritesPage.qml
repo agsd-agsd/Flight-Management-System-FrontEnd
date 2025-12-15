@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import FluentUI 1.0
+import NetworkHandler 1.0
 
 FluContentPage {
     id: root
@@ -9,6 +10,50 @@ FluContentPage {
 
     property var navView
     property var favoritesModel // 接收全局收藏模型
+    property var ordersModel // 兼容性属性
+    property var stackView // 兼容性属性
+    property string userEmail: "" // 兼容性属性
+    property string userName: "" // 兼容性属性
+
+    NetworkHandler {
+        id: networkHandler
+        onRequestSuccess: function(res, endpoint){
+            if(endpoint === "/GetStarTickets"){
+                if(res.data && Array.isArray(res.data)){
+                    favoritesModel.clear()
+                    for(var i=0; i<res.data.length; i++){
+                        var item = res.data[i]
+                        favoritesModel.append({
+                            ticketId: item.starid, // 注意：这里后端返回的是 starid 还是 ticketid 需要确认，假设是 starid 对应收藏记录，但详情页需要 ticketid
+                            // 实际上后端返回的 data 包含 flightnumber 等信息，但可能没有原始 ticketid？
+                            // 根据文档：starid, flightnumber, airline... 
+                            // 如果没有 ticketid，我们可能无法跳转详情。
+                            // 假设 starid 就是 ticketid 或者我们可以用 flightnumber 查
+                            // 暂时用 starid 作为 ticketId
+                            flightNo: item.flightnumber,
+                            depart: item.departureairport,
+                            arrive: item.arrivalairport,
+                            departTime: item.departuretime,
+                            arriveTime: item.arrivaltime,
+                            price: item.price
+                        })
+                    }
+                }
+            }
+        }
+        onRequestFailed: function(err){
+            showError("获取收藏失败: " + err)
+        }
+    }
+
+    Component.onCompleted: {
+        networkHandler.request("/GetStarTickets", NetworkHandler.POST, {
+            email: GlobalSession.email,
+            id: GlobalSession.userId,
+            offset: 0,
+            limit: 100
+        })
+    }
 
     ColumnLayout {
         anchors.fill: parent

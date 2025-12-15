@@ -11,6 +11,7 @@ class UserSession : public QObject
     Q_PROPERTY(QString email READ email WRITE setEmail NOTIFY emailChanged)
     Q_PROPERTY(int userId READ userId WRITE setUserId NOTIFY userIdChanged)
     Q_PROPERTY(bool isLoggedIn READ isLoggedIn WRITE setIsLoggedIn NOTIFY isLoggedInChanged)
+    Q_PROPERTY(double balance READ balance WRITE setBalance NOTIFY balanceChanged)
 
 public:
     explicit UserSession(QObject *parent = nullptr)
@@ -19,6 +20,7 @@ public:
         , m_email("")
         , m_userId(0)
         , m_isLoggedIn(false)
+        , m_balance(0.0)
     {}
     static UserSession *instance();
 
@@ -27,6 +29,7 @@ public:
     QString email() const { return m_email; }
     int userId() const { return m_userId; }
     bool isLoggedIn() const { return m_isLoggedIn; }
+    double balance() const { return m_balance; }
 
     // Setter 方法 (QML赋值时会自动调用这些)
     void setUsername(const QString &name) {
@@ -53,12 +56,19 @@ public:
             emit isLoggedInChanged();
         }
     }
+    void setBalance(double b) {
+        if (m_balance != b) {
+            m_balance = b;
+            emit balanceChanged();
+        }
+    }
 
 signals:
     void usernameChanged();
     void emailChanged();
     void userIdChanged();
     void isLoggedInChanged();
+    void balanceChanged();
 
 private:
     static UserSession *m_instance;
@@ -66,6 +76,7 @@ private:
     QString m_email;
     int m_userId;
     bool m_isLoggedIn;
+    double m_balance;
 };
 
 #endif // USERSESSION_H

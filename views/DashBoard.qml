@@ -6,6 +6,10 @@ import FluentUI 1.0
     Item {
     property StackView stackView  // 用于返回登录
     
+    // 全局用户信息
+    property string globalUserEmail: ""
+    property string globalUserName: ""
+
     // 全局收藏列表模型
     ListModel {
         id: favoritesModel
@@ -53,7 +57,9 @@ import FluentUI 1.0
                 navView: userNavView, 
                 stackView: stackView,
                 favoritesModel: favoritesModel,
-                ordersModel: ordersModel
+                ordersModel: ordersModel,
+                userEmail: globalUserEmail,
+                userName: globalUserName
             })
         }
 
