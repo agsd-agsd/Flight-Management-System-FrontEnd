@@ -78,14 +78,6 @@ import FluentUI 1.0
             }
 
             FluPaneItem {
-                id: item_find
-                title: qsTr("发现")
-                icon: FluentIcons.QuickNote
-                url: "qrc:/qt/QT_Project/views/FindView.qml"
-                onTap: { userNavView.navigateTo(url); }
-            }
-
-            FluPaneItem {
                 id: item_flight_info
                 title: qsTr("全部航班")
                 icon: FluentIcons.Airplane

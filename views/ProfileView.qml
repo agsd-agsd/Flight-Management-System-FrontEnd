@@ -72,10 +72,6 @@ FluContentPage {
         }
     }
 
-    // FluContentDialog {
-    //     id: colorPickerDialog
-    //     ...
-    // }
 
     ScrollView {
         anchors.fill: parent
