@@ -74,8 +74,8 @@ FluPage {
             console.log("正在请求票务详情, ID:", ticketId)
             
             var params = {
-                "email": userEmail,
-                "id": parseInt(userId),
+                "email": GlobalSession.email,
+                "id": GlobalSession.userId,
                 "ticketid": ticketId
             }
             detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
@@ -175,8 +175,8 @@ FluPage {
                         "arriveTime": arriveTime,
                         "price": price,
                         "ticketId": ticketId,
-                        "userEmail": userEmail,
-                        "userId": userId,
+                        "userEmail": GlobalSession.email,
+                        "userId": GlobalSession.userId,
                         "ordersModel": ordersModel // 传递给购买页
                     }
                     

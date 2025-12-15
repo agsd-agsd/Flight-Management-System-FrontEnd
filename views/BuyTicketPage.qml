@@ -26,7 +26,7 @@ FluContentPage {
                 showSuccess("购票成功！")
                 // 刷新余额
                 networkHandler.request("/GetCurrency", NetworkHandler.POST, {
-                    email: userEmail,
+                    email: GlobalSession.email,
                     id: GlobalSession.userId
                 })
                 // 延迟返回
@@ -220,8 +220,8 @@ FluContentPage {
 
                         // 调用后端接口
                         networkHandler.request("/BuyTicket", NetworkHandler.POST, {
-                            email: userEmail,
-                            id: parseInt(userId),
+                            email: GlobalSession.email,
+                            id: GlobalSession.userId,
                             ticketid: ticketId,
                             passengername: passengerNameInput.text,
                             passengerphone: phoneInput.text,
