@@ -92,5 +92,6 @@ Item {
             onClicked: stackView.push("Register.qml", {stackView: stackView})
             Layout.alignment: Qt.AlignHCenter
         }
+
     }
 }

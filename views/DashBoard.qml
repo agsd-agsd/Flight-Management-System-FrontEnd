@@ -147,7 +147,6 @@ import FluentUI 1.0
                 id: item_client_server
                 title: qsTr("客服")
                 icon: FluentIcons.Message
-                url: "qrc:/qt/QT_Project/views/ClientServerView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
         }

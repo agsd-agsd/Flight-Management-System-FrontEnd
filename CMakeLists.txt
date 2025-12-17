@@ -59,6 +59,8 @@ qt_add_qml_module(${PROJECT_NAME}
     QML_FILES views/RechargeView.qml
     SOURCES UserSession.cpp
     SOURCES UserSession.h
+    QML_FILES views/AdminDashboard.qml
+    QML_FILES views/ManageFlights.qml
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
