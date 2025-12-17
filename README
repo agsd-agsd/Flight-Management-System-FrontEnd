@@ -119,6 +119,47 @@ UI颜色：
         refundinfo, #退票信息说明
     }
 
+    管理员查询筛选票：/AdminSearchTickets #管理员端
+    post{
+        departureairport, #起飞机场，字符串，"all"表示不筛选
+        arrivalairport, #到达机场，字符串，"all"表示不筛选
+        startdate, #开始日期，格式"yyyy-MM-dd"，"all"表示不筛选
+        enddate, #结束日期，格式"yyyy-MM-dd"，"all"表示不筛选
+        ticketid, #票ID，整数，0表示不筛选
+        flightnumber, #飞机编号，字符串，空表示不筛选
+        offset, #分页偏移量，整数
+        limit, #分页限制数量，整数
+    }back{
+        success,
+        message OR errors,
+        data{
+            ticketid, #票ID
+            flightnumber, #飞机编号
+            departureairport, #起飞机场
+            arrivalairport, #到达机场
+            departuretime, #起飞时间
+            arrivaltime, #到达时间
+            price, #票价
+        }
+        count, #返回的票数
+        filter, #筛选描述信息
+    }
+
+    管理员查询筛选票总数：/AdminSearchTicketsCount #管理员端
+    post{
+        departureairport, #起飞机场，字符串，"all"表示不筛选
+        arrivalairport, #到达机场，字符串，"all"表示不筛选
+        startdate, #开始日期，格式"yyyy-MM-dd"，"all"表示不筛选
+        enddate, #结束日期，格式"yyyy-MM-dd"，"all"表示不筛选
+        ticketid, #票ID，整数，0表示不筛选
+        flightnumber, #飞机编号，字符串，空表示不筛选
+    }back{
+        success,
+        message OR errors,
+        count, #符合条件的票总数
+        filter, #筛选描述信息
+    }
+
     查票列表：/GetTickets
     post{
         email,
