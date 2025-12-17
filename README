@@ -108,6 +108,17 @@ UI颜色：
         price, #票价
     }
 
+    删除航班：/AdminDeleteFlight #管理员端
+    post{
+        flightid, #要删除的航班ID，正整数
+    }back{
+        success,
+        message OR errors,
+        flightid, #删除的航班ID
+        refundcount, #退票人数
+        refundinfo, #退票信息说明
+    }
+
     查票列表：/GetTickets
     post{
         email,
