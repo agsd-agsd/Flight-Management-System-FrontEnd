@@ -14,7 +14,7 @@ FluContentPage{
     property string userName: ""
     property var favoritesModel // 接收全局收藏模型
     property var ordersModel // 接收全局订单模型
-    property var cityList:["北京", "上海", "广州", "深圳", "成都", "香港","武汉"]
+    property var cityList:["北京", "上海", "广州", "成都", "香港","武汉"]
     property var flightData: []
     property string selectedDate:""
 
