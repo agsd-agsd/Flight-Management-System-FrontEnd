@@ -244,6 +244,7 @@ UI颜色：
         message OR errors,
         data{
             orderid, #订单号
+            ticketid, #票ID，用于前端跳转到航班详情
             flightnumber, #飞机编号
             departureairport,
             arrivalairport,
@@ -383,6 +384,7 @@ UI颜色：
         message OR errors,
         data{
             starid, #收藏记录ID
+            ticketid, #票ID，用于前端跳转到航班详情
             flightnumber, #飞机编号
             airline, #航空公司
             departureairport, #出发机场
