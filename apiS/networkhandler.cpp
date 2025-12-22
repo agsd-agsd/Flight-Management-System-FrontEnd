@@ -27,54 +27,6 @@ NetworkHandler::NetworkHandler(QObject *parent)
 // [新增] 通用请求实现
 void NetworkHandler::request(const QString &apiPath, Method method, const QVariantMap &params, const QString &token)
 {
-    // --- [MOCK INTERCEPTION START] ---
-    // 为了满足用户"初始金额2000"且"购买扣款"的需求，
-    // 我们在此拦截余额相关的API，使用本地 UserSession 进行模拟，
-    // 避免后端返回 0 覆盖了本地的初始值。
-    if (apiPath == "/GetCurrency") {
-        double current = UserSession::instance()->balance();
-        QVariantMap mockRes;
-        mockRes["currency"] = current;
-        qDebug() << "[NetworkHandler] Mocking /GetCurrency -> " << current;
-        // 延迟一点点模拟网络
-        QTimer::singleShot(100, this, [this, mockRes, apiPath](){
-            emit requestSuccess(mockRes, apiPath);
-        });
-        return;
-    }
-    else if (apiPath == "/AddCurrency") {
-        double amount = params["amount"].toDouble();
-        double current = UserSession::instance()->balance();
-        UserSession::instance()->setBalance(current + amount);
-        
-        QVariantMap mockRes;
-        mockRes["success"] = true;
-        mockRes["message"] = "Recharge successful (Mock)";
-        qDebug() << "[NetworkHandler] Mocking /AddCurrency -> New Balance: " << (current + amount);
-        
-        QTimer::singleShot(100, this, [this, mockRes, apiPath](){
-            emit requestSuccess(mockRes, apiPath);
-        });
-        return;
-    }
-    else if (apiPath == "/SubtractCurrency") {
-        double amount = params["amount"].toDouble();
-        double current = UserSession::instance()->balance();
-        // 简单扣款，不检查负数（前端已检查）
-        UserSession::instance()->setBalance(current - amount);
-
-        QVariantMap mockRes;
-        mockRes["success"] = true;
-        mockRes["message"] = "Payment successful (Mock)";
-        qDebug() << "[NetworkHandler] Mocking /SubtractCurrency -> New Balance: " << (current - amount);
-
-        QTimer::singleShot(100, this, [this, mockRes, apiPath](){
-            emit requestSuccess(mockRes, apiPath);
-        });
-        return;
-    }
-    // --- [MOCK INTERCEPTION END] ---
-
     // 1. 拼接 URL (使用基地址 + 传入的 API 路径)
     QString fullUrlStr = m_baseUrl + apiPath;
 
@@ -236,6 +188,7 @@ void NetworkHandler::login(const QString &email, const QString &password)
             UserSession::instance()->setUserId(uid);
             UserSession::instance()->setUsername(uName);
             UserSession::instance()->setEmail(uEmail);
+            UserSession::instance()->setIsLoggedIn(true); // [新增] 标记为已登录
 
             qDebug() << "[NetworkHandler] UserSession updated -> ID:" << uid;
 

@@ -230,6 +230,13 @@ FluContentPage {
                             return
                         }
 
+                        if (GlobalSession.userId === 0) {
+                            showError("用户未登录或ID无效，请重新登录")
+                            return
+                        }
+
+                        console.log("Sending BuyTicket request -> TicketID:", ticketId, " UserID:", GlobalSession.userId)
+
                         // 调用后端接口
                         networkHandler.request("/BuyTicket", NetworkHandler.POST, {
                             email: GlobalSession.email,
