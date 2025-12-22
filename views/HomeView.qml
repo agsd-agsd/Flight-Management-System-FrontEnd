@@ -8,6 +8,8 @@ FluScrollablePage {
     animationEnabled: false
     header: Item{}
 
+    property StackView stackView
+
     ListModel {
         id: model_header
         ListElement {
@@ -17,6 +19,17 @@ FluScrollablePage {
             url: "https://github.com/agsd-agsd/Flight-Management-System-FrontEnd"
             clicked: function(model){
                 Qt.openUrlExternally(model.url)
+            }
+        }
+        ListElement {
+            icon: "qrc:/qt/QT_Project/figures/avatar-agsd.jpg"
+            title: qsTr("Admin Dashboard")
+            desc: qsTr("Go to Admin Dashboard")
+            url: "qrc:/qt/QT_Project/views/AdminDashboard.qml"
+            clicked: function(model){
+                if(stackView){
+                    stackView.push(model.url, {stackView: stackView})
+                }
             }
         }
     }

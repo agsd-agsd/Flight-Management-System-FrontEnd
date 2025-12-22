@@ -51,13 +51,18 @@ import FluentUI 1.0
         }
 
 
-        items:FluPaneItem {
+        items: FluPaneItemExpander {
+            title: qsTr("管理菜单")
+            iconVisible: false
+            
+            FluPaneItem {
                 id: item_home
                 title: qsTr("航班管理")
                 icon: FluentIcons.Airplane
                 url: "qrc:/qt/QT_Project/views/ManageFlights.qml"
                 onTap: { adminNavView.navigateTo(url); }
             }
+        }
 
 
 
