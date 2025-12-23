@@ -53,7 +53,7 @@ Item {
     }
 
     FluFilledButton {
-        text: "返回用户登录"
+        text: "返回"
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.margins: 20

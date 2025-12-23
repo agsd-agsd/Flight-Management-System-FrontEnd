@@ -28,9 +28,9 @@ FluScrollablePage {
         }
         ListElement {
             icon: "qrc:/qt/QT_Project/figures/avatar-agsd.jpg"
-            title: qsTr("Admin Dashboard")
-            desc: qsTr("Go to Admin Dashboard")
-            url: "qrc:/qt/QT_Project/views/AdminDashboard.qml"
+            title: qsTr("Admin Login")
+            desc: qsTr("Go to Admin Login")
+            url: "qrc:/qt/QT_Project/views/AdminLogin.qml"
             clicked: function(model){
                 if(stackView){
                     stackView.push(model.url, {stackView: stackView})
