@@ -182,12 +182,14 @@ void NetworkHandler::login(const QString &email, const QString &password)
 
             QString uName = obj["username"].toString();
             QString uEmail = obj["email"].toString();
+            QString uProfileColor = obj["profilecolor"].toString();
 
             // 2. 写入 UserSession 单例 (这是最关键的一步！)
             // 确保你的 UserSession 类有 instance() 静态方法和对应的 setter
             UserSession::instance()->setUserId(uid);
             UserSession::instance()->setUsername(uName);
             UserSession::instance()->setEmail(uEmail);
+            UserSession::instance()->setProfileColor(uProfileColor);
             UserSession::instance()->setIsLoggedIn(true); // [新增] 标记为已登录
 
             qDebug() << "[NetworkHandler] UserSession updated -> ID:" << uid;

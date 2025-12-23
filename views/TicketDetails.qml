@@ -52,6 +52,24 @@ FluPage {
         }
     }
 
+    NetworkHandler {
+        id: favHandler
+        onRequestSuccess: function(res, endpoint) {
+            if (res.success) {
+                if (endpoint === "/AddStar") {
+                    console.log("收藏成功")
+                } else if (endpoint === "/RemoveStar") {
+                    console.log("取消收藏成功")
+                }
+            } else {
+                showError("操作失败: " + (res.message || "未知错误"))
+            }
+        }
+        onRequestFailed: function(err) {
+            showError("网络错误: " + err)
+        }
+    }
+
     // 辅助函数:转换时间
     function formatTimeStr(rawStr) {
         if (!rawStr) return "--:--"
@@ -110,9 +128,22 @@ FluPage {
                 checked: isFavorite
                 onClicked: {
                     isFavorite = !isFavorite
+                    
+                    var params = {
+                        "email": GlobalSession.email,
+                        "id": GlobalSession.userId,
+                        "ticketid": ticketId
+                    }
+
+                    // 无论是否有本地模型，都发送网络请求
+                    if (isFavorite) {
+                        favHandler.request("/AddStar", NetworkHandler.POST, params)
+                    } else {
+                        favHandler.request("/RemoveStar", NetworkHandler.POST, params)
+                    }
+
                     if (favoritesModel) {
                         if (isFavorite) {
-                            // 添加到收藏
                             // 检查是否已存在
                             var exists = false
                             for(var i=0; i<favoritesModel.count; i++) {
@@ -134,7 +165,6 @@ FluPage {
                                 console.log("已添加到收藏:", ticketId)
                             }
                         } else {
-                            // 从收藏移除
                             for(var i=0; i<favoritesModel.count; i++) {
                                 if(favoritesModel.get(i).ticketId === ticketId) {
                                     favoritesModel.remove(i)

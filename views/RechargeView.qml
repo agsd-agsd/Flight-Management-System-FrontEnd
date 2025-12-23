@@ -123,5 +123,19 @@ FluScrollablePage {
                 })
             }
         }
+
+        FluButton {
+            text: "返回"
+            Layout.fillWidth: true
+            Layout.topMargin: 10
+            Layout.preferredHeight: 45
+            onClicked: {
+                if (page.StackView.view) {
+                    page.StackView.view.pop()
+                } else if (navView && typeof navView.pop === 'function') {
+                    navView.pop()
+                }
+            }
+        }
     }
 }

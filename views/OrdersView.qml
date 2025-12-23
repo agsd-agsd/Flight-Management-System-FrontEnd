@@ -21,6 +21,7 @@ FluContentPage {
         id: networkHandler
         onRequestSuccess: function(res, endpoint){
             if(endpoint === "/GetOwnTickets"){
+                console.log("【OrdersView】订单列表返回:", JSON.stringify(res))
                 if(res.data && Array.isArray(res.data)){
                     ordersModel.clear()
                     for(var i=0; i<res.data.length; i++){
@@ -41,9 +42,11 @@ FluContentPage {
                             cabin: "经济舱",
                             seatRow: "1",
                             seatCol: "A",
-                            date: item.departuretime.split(" ")[0]
+                            date: item.departuretime ? item.departuretime.split(" ")[0] : "--"
                         })
                     }
+                } else {
+                    console.log("【OrdersView】没有订单数据或格式错误")
                 }
             } else if (endpoint === "/RefundTicket") {
                 showSuccess("退票成功")
@@ -66,6 +69,7 @@ FluContentPage {
     }
 
     function refreshOrders() {
+        console.log("Refreshing orders...")
         networkHandler.request("/GetOwnTickets", NetworkHandler.POST, {
             email: GlobalSession.email,
             userid: GlobalSession.userId,
@@ -77,6 +81,13 @@ FluContentPage {
 
     Component.onCompleted: {
         refreshOrders()
+    }
+    
+    // [新增] 当页面重新可见时（例如从其他页面切回来），自动刷新
+    onVisibleChanged: {
+        if(visible){
+            refreshOrders()
+        }
     }
 
     FluContentDialog {

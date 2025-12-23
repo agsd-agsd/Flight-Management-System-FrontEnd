@@ -36,6 +36,13 @@ FluContentPage {
                     email: GlobalSession.email,
                     id: GlobalSession.userId
                 })
+                
+                // [新增] 刷新订单列表（如果 ordersModel 存在）
+                // 注意：这里我们无法直接刷新 OrdersView 的列表，因为那是另一个页面。
+                // 但我们可以通过 GlobalSession 或者重新拉取数据来更新。
+                // 最好的方式是 OrdersView 每次显示时自动刷新（已在 OrdersView 中实现 onVisibleChanged）。
+                // 这里我们只需要确保返回后，用户进入订单页能看到新数据。
+                
                 // 延迟返回
                 timer.start()
             } else if (endpoint === "/GetCurrency") {

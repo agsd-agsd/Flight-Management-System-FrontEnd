@@ -12,13 +12,18 @@ FluScrollablePage {
     property var navView
     property var favoritesModel
     property var ordersModel
-    property string userEmail: "" 
-    property string userName: "" 
+    property string userEmail: GlobalSession.email
+    property string userName: GlobalSession.username
 
     // 模拟用户信息
-    property string userId: "90001"
+    property string userId: GlobalSession.userId.toString()
     // property string userName: "Admin" // Removed to avoid conflict
-    property color avatarColor: "#0078d4"
+    property color avatarColor: {
+        if (GlobalSession.profileColor && GlobalSession.profileColor !== "") {
+            return GlobalSession.profileColor
+        }
+        return "#0078d4"
+    }
     property var colorList: ["#0078d4", "#107c10", "#d13438", "#5c2d91", "#ff8c00", "#00b7c3"]
 
     NetworkHandler {
@@ -28,7 +33,28 @@ FluScrollablePage {
                 if(res.currency !== undefined) {
                     GlobalSession.balance = parseFloat(res.currency)
                 }
+            } else if (endpoint === "/UpdateProfileColor") {
+                showSuccess("头像颜色已更新")
+            } else if (endpoint === "/UpdateUsername") {
+                showSuccess("用户名已更新")
+                GlobalSession.username = userName
             }
+        }
+        onRequestFailed: function(errMsg) {
+            // 尝试提取 JSON 错误信息
+            var displayMsg = errMsg
+            if (errMsg.indexOf("服务器拒绝: ") !== -1) {
+                var jsonStr = errMsg.replace("服务器拒绝: ", "")
+                try {
+                    var jsonObj = JSON.parse(jsonStr)
+                    if (jsonObj.errors) {
+                        displayMsg = jsonObj.errors
+                    }
+                } catch(e) {
+                    // 解析失败，使用原始消息
+                }
+            }
+            showError(displayMsg)
         }
     }
 
@@ -122,8 +148,17 @@ FluScrollablePage {
                         onClicked: {
                             // 随机切换颜色
                             var nextIndex = Math.floor(Math.random() * colorList.length)
-                            avatarColor = colorList[nextIndex]
-                            showInfo("头像颜色已更新")
+                            var newColor = colorList[nextIndex]
+                            
+                            // Update Global Session
+                            GlobalSession.profileColor = newColor
+                            
+                            // Call API
+                            networkHandler.request("/UpdateProfileColor", NetworkHandler.POST, {
+                                email: GlobalSession.email,
+                                id: GlobalSession.userId,
+                                profilecolor: newColor.toString()
+                            })
                         }
                     }
                 }
@@ -143,8 +178,14 @@ FluScrollablePage {
                         id: avatarColorPicker
                         current: root.avatarColor
                         onAccepted: {
-                            root.avatarColor = current
-                            showSuccess("头像颜色已更新")
+                            var newColor = current
+                            GlobalSession.profileColor = newColor
+                            
+                            networkHandler.request("/UpdateProfileColor", NetworkHandler.POST, {
+                                email: GlobalSession.email,
+                                id: GlobalSession.userId,
+                                profilecolor: newColor.toString()
+                            })
                         }
                     }
                 }
@@ -213,7 +254,16 @@ FluScrollablePage {
                         text: "保存修改"
                         Layout.alignment: Qt.AlignRight
                         onClicked: {
-                            showSuccess("个人信息保存成功")
+                            if (userName === "") {
+                                showError("用户名不能为空")
+                                return
+                            }
+                            
+                            networkHandler.request("/UpdateUsername", NetworkHandler.POST, {
+                                email: GlobalSession.email,
+                                id: GlobalSession.userId,
+                                new_username: userName
+                            })
                         }
                     }
                 }

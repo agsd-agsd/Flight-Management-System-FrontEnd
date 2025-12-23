@@ -9,6 +9,11 @@ FluScrollablePage {
     header: Item{}
 
     property StackView stackView
+    property var navView
+    property var favoritesModel
+    property var ordersModel
+    property string userEmail
+    property string userName
 
     ListModel {
         id: model_header
@@ -190,7 +195,13 @@ FluScrollablePage {
         Layout.margins: 20
         
         Repeater {
-            model: ["Flight Search", "Ticket Booking", "Order Management", "User Profile", "Favorites"]
+            model: [
+                { title: "Flight Search", url: "qrc:/qt/QT_Project/views/FlightInfo.qml", icon: FluentIcons.Airplane, desc: "Search for available flights" },
+                { title: "Ticket Booking", url: "qrc:/qt/QT_Project/views/FlightInfo.qml", icon: FluentIcons.Shop, desc: "Book your tickets now" },
+                { title: "Order Management", url: "qrc:/qt/QT_Project/views/OrdersView.qml", icon: FluentIcons.ShoppingCart, desc: "View and manage your orders" },
+                { title: "User Profile", url: "qrc:/qt/QT_Project/views/ProfileView.qml", icon: FluentIcons.Contact, desc: "Update your personal info" },
+                { title: "Favorites", url: "qrc:/qt/QT_Project/views/MyFavoritesPage.qml", icon: FluentIcons.FavoriteStar, desc: "View your favorite flights" }
+            ]
             delegate: FluFrame {
                 width: 300
                 height: 100
@@ -214,18 +225,18 @@ FluScrollablePage {
                         color: FluTheme.primaryColor
                         FluIcon {
                             anchors.centerIn: parent
-                            iconSource: FluentIcons.Airplane
+                            iconSource: modelData.icon
                             color: "white"
                         }
                     }
                     
                     ColumnLayout {
                         FluText {
-                            text: modelData
+                            text: modelData.title
                             font: FluTextStyle.BodyStrong
                         }
                         FluText {
-                            text: "Feature description here"
+                            text: modelData.desc
                             color: FluColors.Grey120
                             font: FluTextStyle.Caption
                         }
@@ -236,6 +247,19 @@ FluScrollablePage {
                     id: item_mouse_feature
                     anchors.fill: parent
                     hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        if (navView) {
+                            navView.push(modelData.url, {
+                                navView: navView,
+                                stackView: stackView,
+                                favoritesModel: favoritesModel,
+                                ordersModel: ordersModel,
+                                userEmail: userEmail,
+                                userName: userName
+                            })
+                        }
+                    }
                 }
             }
         }
