@@ -22,7 +22,7 @@ FluContentPage {
         onRequestSuccess: function(res, endpoint){
             if(endpoint === "/GetOwnTickets"){
                 console.log("【OrdersView】订单列表返回:", JSON.stringify(res))
-                if(res.data && Array.isArray(res.data)){
+                if(res.data ){
                     ordersModel.clear()
                     for(var i=0; i<res.data.length; i++){
                         var item = res.data[i]
@@ -105,8 +105,8 @@ FluContentPage {
             if (pendingOrderId !== "") {
                 networkHandler.request("/RefundTicket", NetworkHandler.POST, {
                     email: GlobalSession.email,
-                    userid: GlobalSession.userId,
-                    orderid: pendingOrderId
+                    id: GlobalSession.userId,
+                    orderid: parseInt(pendingOrderId)
                 })
                 pendingDeleteIndex = -1
                 pendingOrderId = ""
