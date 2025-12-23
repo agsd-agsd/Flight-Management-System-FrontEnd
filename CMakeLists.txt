@@ -60,6 +60,7 @@ qt_add_qml_module(${PROJECT_NAME}
     SOURCES UserSession.cpp
     SOURCES UserSession.h
     QML_FILES views/AdminDashboard.qml
+    QML_FILES views/AdminLogin.qml
     QML_FILES views/ManageFlights.qml
 )
 

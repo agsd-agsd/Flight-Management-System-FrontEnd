@@ -8,6 +8,14 @@ import QT_Project
 Item {
     property StackView stackView
 
+    FluFilledButton {
+        text: qsTr("管理员登录")
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.margins: 20
+        onClicked: stackView.push("AdminLogin.qml", {stackView: stackView})
+    }
+
     ColumnLayout {
         anchors.centerIn: parent
         spacing: 20
