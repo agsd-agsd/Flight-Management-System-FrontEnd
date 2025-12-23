@@ -142,13 +142,6 @@ import FluentUI 1.0
                 url: "qrc:/qt/QT_Project/views/AboutView.qml"
                 onTap: { userNavView.navigateTo(url); }
             }
-
-            FluPaneItem {
-                id: item_client_server
-                title: qsTr("客服")
-                icon: FluentIcons.Message
-                onTap: { userNavView.navigateTo(url); }
-            }
         }
     }
 }
