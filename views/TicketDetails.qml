@@ -26,6 +26,7 @@ FluPage {
     property string seat: "待选"
     property string passengerName: "待定"
     property real price: 0.0
+    property int remainingCount: -1
 
 
     // 网络请求组件
@@ -70,11 +71,34 @@ FluPage {
         }
     }
 
+    NetworkHandler {
+        id: remHandler
+        onRequestSuccess: function(res) {
+            if(res.success){
+                remainingCount = res.remainingnumber
+                console.log("余票查询结果:", remainingCount)
+            }
+        }
+        onRequestFailed: function(err) { console.log("查余票失败:", err) }
+    }
     // 辅助函数:转换时间
     function formatTimeStr(rawStr) {
         if (!rawStr) return "--:--"
         var date = new Date(rawStr)
         return Qt.formatTime(date, "hh:mm")
+    }
+
+    onVisibleChanged: {
+            if (visible && ticketId !== 0) {
+                console.log("详情页变为可见，刷新余票...")
+                var remParams = {
+                    "email": GlobalSession.email,
+                    "id": parseInt(GlobalSession.userId),
+                    "ticketid": parseInt(ticketId)
+                }
+                // 重新发送请求查余票
+                remHandler.request("/GetRemainingTicketsNum", NetworkHandler.POST, remParams)
+            }
     }
 
     Component.onCompleted: {
@@ -97,6 +121,13 @@ FluPage {
                 "ticketid": ticketId
             }
             detailHandler.request("/GetTicketDetails", NetworkHandler.POST, params)
+
+            var remParams = {
+                            "email": GlobalSession.email,
+                            "id": parseInt(GlobalSession.userId),
+                            "ticketid": parseInt(ticketId)
+            }
+            remHandler.request("/GetRemainingTicketsNum", NetworkHandler.POST, remParams)
         }
     }
 
@@ -337,6 +368,7 @@ FluPage {
                 FluText { text: "起飞时间: " + departTime; font.pixelSize: 14 * scale }
                 FluText { text: "到达时间: " + arriveTime; font.pixelSize: 14 * scale }
                 FluText { text: "价格: ￥" + price.toFixed(2); font.pixelSize: 14 * scale }
+                FluText { text: "余票: " +  remainingCount;font.pixelSize: 14 * scale }
             }
         }
 
