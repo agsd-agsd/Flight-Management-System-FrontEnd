@@ -58,12 +58,17 @@ FluScrollablePage {
         }
     }
 
-    Component.onCompleted: {
-        // 每次进入个人中心刷新余额
-        networkHandler.request("/GetCurrency", NetworkHandler.POST, {
-            email: GlobalSession.email,
-            id: GlobalSession.userId
-        })
+    onVisibleChanged: {
+        if(visible) {
+            // 页面可见时同步数据，防止因缓存导致显示旧数据
+            userName = GlobalSession.username
+            
+            // 刷新余额
+            networkHandler.request("/GetCurrency", NetworkHandler.POST, {
+                email: GlobalSession.email,
+                id: GlobalSession.userId
+            })
+        }
     }
 
 
@@ -157,7 +162,7 @@ FluScrollablePage {
                             networkHandler.request("/UpdateProfileColor", NetworkHandler.POST, {
                                 email: GlobalSession.email,
                                 id: GlobalSession.userId,
-                                profilecolor: newColor.toString()
+                                profile_color: newColor.toString()
                             })
                         }
                     }
@@ -184,7 +189,7 @@ FluScrollablePage {
                             networkHandler.request("/UpdateProfileColor", NetworkHandler.POST, {
                                 email: GlobalSession.email,
                                 id: GlobalSession.userId,
-                                profilecolor: newColor.toString()
+                                profile_color: newColor.toString()
                             })
                         }
                     }
