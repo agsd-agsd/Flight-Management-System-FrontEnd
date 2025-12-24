@@ -9,18 +9,22 @@ FluContentPage {
     title: "我的收藏"
 
     property var navView
-    property var favoritesModel // 接收全局收藏模型
     property var ordersModel // 兼容性属性
     property var stackView // 兼容性属性
     property string userEmail: "" // 兼容性属性
     property string userName: "" // 兼容性属性
+
+    ListModel {
+                id: localFavoritesModel
+            }
+    property var favoritesModel: localFavoritesModel
 
     NetworkHandler {
         id: networkHandler
         onRequestSuccess: function(res, endpoint){
             if(endpoint === "/GetStarTickets"){
                 console.log("【MyFavoritesPage】收藏列表返回:", JSON.stringify(res))
-                if(res.data && Array.isArray(res.data)){
+                if(res.data){
                     favoritesModel.clear()
                     for(var i=0; i<res.data.length; i++){
                         var item = res.data[i]
