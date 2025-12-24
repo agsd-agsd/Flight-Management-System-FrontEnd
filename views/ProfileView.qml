@@ -15,6 +15,17 @@ FluScrollablePage {
     property string userEmail: GlobalSession.email
     property string userName: GlobalSession.username
 
+    function toHexColor(c) {
+        var colorStr = c.toString()
+        if (colorStr.startsWith("#")) {
+            colorStr = colorStr.substring(1)
+        }
+        if (colorStr.length === 6) {
+            colorStr = "FF" + colorStr
+        }
+        return colorStr.toUpperCase()
+    }
+
     // 模拟用户信息
     property string userId: GlobalSession.userId.toString()
     // property string userName: "Admin" // Removed to avoid conflict
@@ -162,7 +173,7 @@ FluScrollablePage {
                             networkHandler.request("/UpdateProfileColor", NetworkHandler.POST, {
                                 email: GlobalSession.email,
                                 id: GlobalSession.userId,
-                                profile_color: newColor.toString()
+                                profile_color: toHexColor(newColor)
                             })
                         }
                     }
@@ -189,7 +200,7 @@ FluScrollablePage {
                             networkHandler.request("/UpdateProfileColor", NetworkHandler.POST, {
                                 email: GlobalSession.email,
                                 id: GlobalSession.userId,
-                                profile_color: newColor.toString()
+                                profile_color: toHexColor(newColor)
                             })
                         }
                     }
@@ -210,7 +221,6 @@ FluScrollablePage {
                 radius: [8,8,8,8]
                 color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
                 borderWidth: 1
-                borderColor: "#e0e0e0"
 
                 ColumnLayout {
                     anchors.fill: parent
