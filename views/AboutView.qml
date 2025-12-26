@@ -30,12 +30,12 @@ FluContentPage {
                         Layout.preferredHeight: 180
                         radius: [8,8,8,8]
                         color: FluTheme.dark ? Qt.rgba(45/255,45/255,45/255,1) : Qt.rgba(240/255,240/255,240/255,1)
+                        clip: true
 
-                        FluText {
-                            anchors.centerIn: parent
-                            text: "Team Photo Placeholder"
-                            color: "#888888"
-                            font.pixelSize: 20
+                        Image {
+                            anchors.fill: parent
+                            source: "qrc:/qt/QT_Project/figures/teamBackground.png"
+                            fillMode: Image.PreserveAspectCrop
                         }
                     }
 

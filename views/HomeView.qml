@@ -19,7 +19,7 @@ FluScrollablePage {
         id: model_header
         ListElement {
             icon: "qrc:/qt/QT_Project/figures/github.png"
-            title: qsTr("Flight Management System")
+            title: qsTr("Uranus")
             desc: qsTr("A modern flight management system built with Qt and FluentUI.")
             url: "https://github.com/agsd-agsd/Flight-Management-System-FrontEnd"
             clicked: function(model){
@@ -61,7 +61,7 @@ FluScrollablePage {
         }
 
         FluText {
-            text: "Flight Management System"
+            text: "Uranus"
             font: FluTextStyle.TitleLarge
             anchors {
                 top: parent.top

@@ -21,7 +21,7 @@ Item {
         spacing: 20
 
         FluCopyableText {
-            text: "AIR"
+            text: "Uranus"
             font.pixelSize: 24
             Layout.alignment: Qt.AlignHCenter
         }
