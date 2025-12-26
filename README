@@ -65,6 +65,33 @@ UI颜色：
         message OR errors,
     }
 
+    管理员查询所有用户：/AdminGetAllUsers #管理员端
+    post{
+        #无需参数
+    }back{
+        success,
+        message OR errors,
+        users{
+            id, #用户ID
+            email, #用户邮箱
+            username, #用户名
+            profile_color, #头像颜色
+            currency, #货币余额
+        }
+        count, #用户总数
+    }
+
+    管理员删除用户：/AdminDeleteUser #管理员端
+    post{
+        userid, #要删除的用户ID，正整数
+    }back{
+        success,
+        message OR errors,
+        userid, #删除的用户ID
+        refundcount, #为该用户退票的数量
+        refundinfo, #退票信息说明
+    }
+
     查票总数：/GetTicketsNum
     post{
         email,
