@@ -62,6 +62,14 @@ import FluentUI 1.0
                 url: "qrc:/qt/QT_Project/views/ManageFlights.qml"
                 onTap: { adminNavView.navigateTo(url); }
             }
+
+            FluPaneItem {
+                id: item_users
+                title: qsTr("用户管理")
+                icon: FluentIcons.People
+                url: "qrc:/qt/QT_Project/views/ManageUsers.qml"
+                onTap: { adminNavView.navigateTo(url); }
+            }
         }
 
 

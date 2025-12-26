@@ -62,6 +62,7 @@ qt_add_qml_module(${PROJECT_NAME}
     QML_FILES views/AdminDashboard.qml
     QML_FILES views/AdminLogin.qml
     QML_FILES views/ManageFlights.qml
+    QML_FILES views/ManageUsers.qml
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

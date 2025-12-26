@@ -19,6 +19,16 @@ FluContentPage {
             }
     property var favoritesModel: localFavoritesModel
 
+    function formatTime(timeStr) {
+            if (!timeStr) return "--:--"
+            var parts = timeStr.split("T")
+            if (parts.length > 1) {
+                return parts[1].substring(0, 5)
+            }
+            return timeStr
+    }
+
+
     NetworkHandler {
         id: networkHandler
         onRequestSuccess: function(res, endpoint){
@@ -107,7 +117,7 @@ FluContentPage {
                     ColumnLayout {
                         spacing: 5
                         FluText { text: model.depart + " → " + model.arrive; font.pixelSize: 16 }
-                        FluText { text: model.departTime + " - " + model.arriveTime; font.pixelSize: 14; color: "#888888" }
+                        FluText { text: formatTime(model.departTime) + " - " + formatTime(model.arriveTime); font.pixelSize: 14; color: "#888888" }
                     }
                     
                     Item { Layout.fillWidth: true }
