@@ -35,6 +35,8 @@ set(RESOURCES_FILES
     figures/bg.jpg
     figures/github.png
     figures/avatar-goutou.jpg
+    figures/avatar-hjl.jpg
+    figures/avatar-yhq.jpg
     figures/teamBackground.png
 )
 

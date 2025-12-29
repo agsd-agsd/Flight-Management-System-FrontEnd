@@ -53,14 +53,14 @@ FluContentPage {
                             spacing: 15
 
                             FluText {
-                                text: qsTr("终端露台 (Terminal Terrace)")
+                                text: qsTr("610 Not Found")
                                 font.pixelSize: 28
                                 font.bold: true
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             FluText {
-                                text: qsTr("Terminal Terrace Team (TTT) 由中山大学软件工程学院2023级的4名精英成员组成。我们致力于打造最流畅、最人性化的航班管理系统。")
+                                text: qsTr("610 Not Found致力于坑飞每一个用户")
                                 font.pixelSize: 16
                                 wrapMode: Text.WordWrap
                                 Layout.fillWidth: true
@@ -68,15 +68,7 @@ FluContentPage {
                             }
 
                             FluText {
-                                text: qsTr("团队总部位于风景秀丽的珠海高新区，依托先进的软硬件设施，我们不断探索技术的边界。")
-                                font.pixelSize: 16
-                                wrapMode: Text.WordWrap
-                                Layout.fillWidth: true
-                                lineHeight: 1.5
-                            }
-
-                            FluText {
-                                text: qsTr("本项目 '云途 AltAir' 采用现代化的 QML + C++ 技术栈构建，全程遵循开源精神，使用 GitHub 进行敏捷开发与版本管理。")
+                                text: qsTr("本项目名为Uranus,是一个基于Qt Quick和Fluent UI框架开发的全程github托管的项目，旨在为用户提供便捷的航班查询与预订服务。项目由四位核心成员组成，分别负责不同的模块开发与维护。")
                                 font.pixelSize: 16
                                 wrapMode: Text.WordWrap
                                 Layout.fillWidth: true
@@ -170,10 +162,10 @@ FluContentPage {
                 title: "Goutou"
                 contentItem: MemberPage {
                     name: "Goutou"
-                    role: "总经理 / General Manager"
+                    role: "后端架构与部署工程师"
                     avatarColor: "#0078d4"
                     avatarSource: "qrc:/qt/QT_Project/figures/avatar-goutou.jpg"
-                    desc: "统筹全局，运筹帷幄。\n主要负责：用户端核心航班检索与筛选逻辑、主页架构设计、收藏与预定状态管理；以及管理员端的航班调度与用户信息管理系统。"
+                    desc: "负责后端代码编写，搭建后端HTTP服务框架，主导项目整体架构设计工作；服务器远程部署全流程工作；完成MySQL数据库搭建；后端服务Docker镜像化改造"
                 }
             }
 
@@ -181,30 +173,32 @@ FluContentPage {
                 title: "agsd"
                 contentItem: MemberPage {
                     name: "agsd"
-                    role: "技术总监 / CTO"
+                    role: "前端用户端开发与接口联调工程师"
                     avatarColor: "#107c10"
                     avatarSource: "qrc:/qt/QT_Project/figures/avatar-agsd.jpg"
-                    desc: "技术攻坚，架构基石。\n主要负责：底层网络请求库封装、AI智能客服系统集成、发现页实时旅游笔记流、以及高并发下的航班信息实时同步机制。"
+                    desc: "负责前端用户端较大部份功能代码编写，重点实现详情查看、收藏等用户高频操作功能；主导前端用户端主要UI设计与优化工作；承担前后端接口联调主要工作"
                 }
             }
 
             FluPivotItem {
-                title: "math-zhuxy"
+                title: "hjl"
                 contentItem: MemberPage {
-                    name: "math-zhuxy"
-                    role: "人事总监 / HRD"
+                    name: "hjl"
+                    role: "前端管理员端开发与框架设计师"
                     avatarColor: "#d13438"
-                    desc: "以人为本，体验至上。\n主要负责：用户中心全生命周期管理（注册、登录、鉴权）、个人信息与头像管理系统、以及充值系统的后端安全实现。"
+                    avatarSource: "qrc:/qt/QT_Project/figures/avatar-hjl.jpg"
+                    desc: "负责前端管理员端核心功能代码编写，用户端重点实现查询等用户高频使用界面功能设计，主导前端框架选型与整体设计工作"
                 }
             }
 
             FluPivotItem {
-                title: "YANGPuxyu"
+                title: "yhq"
                 contentItem: MemberPage {
-                    name: "YANGPuxyu"
-                    role: "信息总监 / CIO"
+                    name: "yhq"
+                    role: "项目协调与文档管理专员"
                     avatarColor: "#5c2d91"
-                    desc: "流程优化，交互创新。\n主要负责：订单全流程管理（预定、支付、改签、退票）的前后端闭环；充值中心的前端交互设计，以及本'关于我们'页面的精心雕琢。"
+                    avatarSource: "qrc:/qt/QT_Project/figures/avatar-yhq.jpg"
+                    desc: "担任前后端工作计划协调员，统筹推进项目进度，协调前后端开发衔接；负责项目全流程文档编写工作；开展项目总结分析工作"
                 }
             }
         }
