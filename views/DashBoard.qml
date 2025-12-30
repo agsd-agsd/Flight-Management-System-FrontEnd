@@ -51,6 +51,7 @@ import FluentUI 1.0
 
         Component.onCompleted: {
             // 默认跳转到首页
+            setCurrentIndex(0)
             navigateTo("qrc:/qt/QT_Project/views/HomeView.qml")
         }
 

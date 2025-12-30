@@ -196,12 +196,13 @@ FluScrollablePage {
         
         Repeater {
             model: [
-                { title: "Flight Search", url: "qrc:/qt/QT_Project/views/FlightInfo.qml", icon: FluentIcons.Airplane, desc: "Search for available flights" },
-                { title: "Ticket Booking", url: "qrc:/qt/QT_Project/views/FlightInfo.qml", icon: FluentIcons.Shop, desc: "Book your tickets now" },
-                { title: "Order Management", url: "qrc:/qt/QT_Project/views/OrdersView.qml", icon: FluentIcons.ShoppingCart, desc: "View and manage your orders" },
-                { title: "User Profile", url: "qrc:/qt/QT_Project/views/ProfileView.qml", icon: FluentIcons.Contact, desc: "Update your personal info" },
-                { title: "Favorites", url: "qrc:/qt/QT_Project/views/MyFavoritesPage.qml", icon: FluentIcons.FavoriteStar, desc: "View your favorite flights" }
+                { title: "Flight Search",   url: "qrc:/qt/QT_Project/views/FlightInfo.qml",      icon: FluentIcons.Airplane, desc: "Search for flights", navIndex: 1 },
+                { title: "Ticket Booking",  url: "qrc:/qt/QT_Project/views/FlightInfo.qml",      icon: FluentIcons.Shop,   desc: "Book your tickets",  navIndex: 1 }, // 假设这也跳到查票
+                { title: "Order Management",url: "qrc:/qt/QT_Project/views/OrdersView.qml",      icon: FluentIcons.Shop,     desc: "Manage your orders", navIndex: 2 },
+                { title: "User Profile",    url: "qrc:/qt/QT_Project/views/ProfileView.qml",     icon: FluentIcons.Contact,  desc: "View your profile",  navIndex: 4 }, // 假设这是第4个
+                { title: "Favorites",       url: "qrc:/qt/QT_Project/views/MyFavoritesPage.qml", icon: FluentIcons.Heart,    desc: "Your saved flights", navIndex: 3 }
             ]
+
             delegate: FluFrame {
                 width: 300
                 height: 100
@@ -249,15 +250,22 @@ FluScrollablePage {
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
                     onClicked: {
-                        if (navView) {
-                            navView.push(modelData.url, {
-                                navView: navView,
-                                stackView: stackView,
-                                favoritesModel: favoritesModel,
-                                ordersModel: ordersModel,
-                                userEmail: userEmail,
-                                userName: userName
-                            })
+                        // 1. 执行页面跳转
+                        navView.push(modelData.url, {
+                            "navView": navView,
+                            "favoritesModel": favoritesModel,
+                            "ordersModel": ordersModel,
+                            "userEmail": userEmail,
+                            "userName": userName
+                        })
+                        
+                        // 2. 【关键修改】更新侧边栏选中项
+                        // 注意：这里需要根据您 DashBoard.qml 中实际的 items 顺序来调整 navIndex
+                        // 如果 navView 暴露了 setCurrentIndex 方法或属性，直接设置
+                        if (modelData.navIndex !== undefined) {
+                            // 尝试直接设置 currentIndex，这取决于 FluNavigationView 的具体实现
+                            // 大多数 FluentUI 实现中，items 是一个 list，通过 index 控制选中
+                            navView.setCurrentIndex(modelData.navIndex)
                         }
                     }
                 }
