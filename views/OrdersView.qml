@@ -17,6 +17,31 @@ FluContentPage {
     property int pendingDeleteIndex: -1
     property string pendingOrderId: ""
 
+    function formatTime(timeStr) {
+        if (!timeStr) return "--:--"
+        // 处理 "YYYY-MM-DD HH:mm:ss" 或 "YYYY-MM-DDTHH:mm:ss.xxx"
+        var timePart = ""
+        if (timeStr.indexOf("T") !== -1) {
+            timePart = timeStr.split("T")[1]
+        } else if (timeStr.indexOf(" ") !== -1) {
+            timePart = timeStr.split(" ")[1]
+        } else {
+            return timeStr
+        }
+        
+        // 取前5位 (HH:mm)
+        return timePart.substring(0, 5)
+    }
+
+    function formatDate(timeStr) {
+        if (!timeStr) return "--"
+        if (timeStr.indexOf("T") !== -1) {
+            return timeStr.split("T")[0]
+        } else {
+            return timeStr.split(" ")[0]
+        }
+    }
+
     NetworkHandler {
         id: networkHandler
         onRequestSuccess: function(res, endpoint){
@@ -32,8 +57,8 @@ FluContentPage {
                             flightNo: item.flightnumber,
                             depart: item.departureairport,
                             arrive: item.arrivalairport,
-                            departTime: item.departuretime,
-                            arriveTime: item.arrivaltime,
+                            departTime: formatTime(item.departuretime),
+                            arriveTime: formatTime(item.arrivaltime),
                             price: item.price,
                             isRefund: item.isrefund,
                             // 暂时没有乘客信息，先用默认值或空
@@ -42,7 +67,7 @@ FluContentPage {
                             cabin: "经济舱",
                             seatRow: "1",
                             seatCol: "A",
-                            date: item.departuretime ? item.departuretime.split(" ")[0] : "--"
+                            date: formatDate(item.departuretime)
                         })
                     }
                 } else {
