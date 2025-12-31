@@ -99,21 +99,6 @@ FluScrollablePage {
         }
     }
 
-    FluContentDialog {
-        id: deleteAccountDialog
-        title: "注销账号"
-        message: "警告：注销账号将永久删除您的所有数据（订单、收藏等），此操作不可恢复！\n\n确定要继续吗？"
-        negativeText: "取消"
-        positiveText: "确认注销"
-        buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
-        onPositiveClicked: {
-            showSuccess("账号已注销")
-            if (stackView) {
-                stackView.pop()
-            }
-        }
-    }
-
 
     ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
@@ -315,15 +300,6 @@ FluScrollablePage {
                             Layout.fillWidth: true
                             onClicked: {
                                 logoutDialog.open()
-                            }
-                        }
-
-                        FluButton {
-                            text: "注销账号"
-                            textColor: "#ff4d4f"
-                            Layout.fillWidth: true
-                            onClicked: {
-                                deleteAccountDialog.open()
                             }
                         }
                     }
