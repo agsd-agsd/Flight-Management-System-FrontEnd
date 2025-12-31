@@ -170,7 +170,7 @@ FluContentPage {
                     
                     // 左侧：航班信息
                     ColumnLayout {
-                        Layout.preferredWidth: 200
+                        Layout.preferredWidth: 280
                         spacing: 8
                         FluText { text: model.flightNo; font.pixelSize: 20; font.bold: true }
                         FluText { text: model.depart + " ➝ " + model.arrive; font.pixelSize: 16 }
@@ -185,14 +185,18 @@ FluContentPage {
                         color: "#e0e0e0"
                     }
 
-                    // 中间：乘客与座位信息
-                    ColumnLayout {
+                    // 中间：飞机图标
+                    Item {
                         Layout.fillWidth: true
-                        spacing: 8
-                        FluText { text: "乘客: " + model.passengerName; font.pixelSize: 16 }
-                        FluText { text: "证件: " + model.idCard; font.pixelSize: 14; color: "#666666" }
-                        FluText { text: "舱位: " + model.cabin; font.pixelSize: 14 }
-                        FluText { text: "座位: " + model.seatRow + model.seatCol; font.pixelSize: 14; font.bold: true; color: FluTheme.primaryColor }
+                        Layout.fillHeight: true
+                        
+                        FluIcon {
+                            anchors.centerIn: parent
+                            iconSource: FluentIcons.Airplane
+                            iconSize: 48
+                            color: FluTheme.primaryColor
+                            opacity: 0.2
+                        }
                     }
 
                     // 右侧：价格与状态
@@ -212,13 +216,29 @@ FluContentPage {
                             color: "#ff8819"
                             Layout.alignment: Qt.AlignRight
                         }
-                        FluFilledButton {
-                            text: "退票"
+                        RowLayout {
                             Layout.alignment: Qt.AlignRight
-                            onClicked: {
-                                pendingDeleteIndex = index
-                                pendingOrderId = model.orderId
-                                refundDialog.open()
+                            spacing: 10
+                            
+                            FluButton {
+                                text: "详情"
+                                onClicked: {
+                                    if (navView) {
+                                        navView.push("qrc:/qt/QT_Project/views/OrderDetailPage.qml", {
+                                            navView: navView,
+                                            orderId: model.orderId.toString()
+                                        })
+                                    }
+                                }
+                            }
+                            
+                            FluFilledButton {
+                                text: "退票"
+                                onClicked: {
+                                    pendingDeleteIndex = index
+                                    pendingOrderId = model.orderId
+                                    refundDialog.open()
+                                }
                             }
                         }
                     }

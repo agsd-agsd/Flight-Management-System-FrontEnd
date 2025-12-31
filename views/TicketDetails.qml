@@ -320,15 +320,13 @@ FluPage {
             }
         }
 
-        // 标签区：航班号 / 舱位 / 座位
+        // 标签区：航班号
         RowLayout {
             spacing: 12 * scale
             anchors.horizontalCenter: parent.horizontalCenter
             Repeater {
                 model: [
-                    "航班号: " + flightNo,
-                    "舱位: " + cabin,
-                    "座位: " + seat
+                    "航班号: " + flightNo
                 ]
                 delegate: FluRectangle {
                     radius: [8,8,8,8]
@@ -369,62 +367,6 @@ FluPage {
                 FluText { text: "到达时间: " + arriveTime; font.pixelSize: 14 * scale }
                 FluText { text: "价格: ￥" + price.toFixed(2); font.pixelSize: 14 * scale }
                 FluText { text: "余票: " +  remainingCount;font.pixelSize: 14 * scale }
-            }
-        }
-
-        // 电子登机牌（左二维码 右信息）
-        FluRectangle {
-            width: fitWidth(900, 1100)
-            height: 180 * scale
-            radius: [12,12,12,12]
-            color: FluTheme.dark ? Qt.rgba(32/255,32/255,32/255,1) : Qt.rgba(248/255,248/255,248/255,1)
-            borderColor: "#555555"
-            borderWidth: 1
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            RowLayout {
-                anchors.fill: parent
-                anchors.margins: 20 * scale
-                spacing: 20 * scale
-
-                // 二维码（使用 FluQRCode）
-                Item {
-                    width: Math.round(qrBaseSize * scale)
-                    height: Math.round(qrBaseSize * scale)
-                    Layout.preferredWidth: width
-                    Layout.preferredHeight: height
-                    FluRectangle { 
-                        anchors.fill: parent
-                        color: "#ffffff"
-                        radius: [8,8,8,8]
-                        borderColor: "#bbbbbb"
-                        borderWidth: 1
-                        FluText {
-                            anchors.centerIn: parent
-                            text: "QR Code"
-                            color: "#cccccc"
-                            font.pixelSize: 12
-                            z: -1
-                        }
-                    }
-                    FluQRCode {
-                        anchors.centerIn: parent
-                        color: qrColor
-                        text: qrText
-                        size: Math.round(qrBaseSize * scale)
-                    }
-                }
-
-                // 登机牌信息
-                ColumnLayout {
-                    spacing: 8 * scale
-                    Layout.fillWidth: true
-                    FluText { text: "电子登机牌"; font.pixelSize: 16 * scale; font.bold: true }
-                    FluText { text: "航班: " + flightNo; font.pixelSize: 13 * scale }
-                    FluText { text: "乘客: " + passengerName; font.pixelSize: 13 * scale }
-                    FluText { text: "座位: " + seat + "   舱位: " + cabin; font.pixelSize: 13 * scale }
-                    FluText { text: "请在登机口出示此电子登机牌"; font.pixelSize: 12 * scale }
-                }
             }
         }
     }
